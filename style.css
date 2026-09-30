@@ -31,3 +31,5 @@ summary .m{font-weight:400}
 :focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 .item.dim{opacity:.55}
 .item.missed{border-left-color:var(--bad)}
+.tag{font-size:.75rem;font-weight:600;color:var(--mute);border:1px solid var(--line);border-radius:4px;padding:0 .35rem;margin-right:.45rem;vertical-align:middle}
+a.t{text-decoration:none}a.t:hover{text-decoration:underline}
