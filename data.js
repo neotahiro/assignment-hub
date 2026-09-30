@@ -4,10 +4,7 @@
 const SUBJECTS = [
   {
     id: "pol101", name: "EDSD 510: Ecology and Environment",
-    assignments: [
-            { id: "pol-a1", module: 1, title: "The scholars who paved the way further", done: true },
-      { id: "pol-a2", module: 2, title: "Write down a 600-800 words reflection report on how understanding the basics of ecology including population ecology (structure, dynamics), community ecology (structure, dynamics), ecological relationships/interactions and interdependence and anthropogenic determinants of ecological imbalance have applied relevance to sustainable development. Shape your write-up based on the discussions in the class.", done: true }
-    ],
+    assignments: [],
 readings: [],
     notes: [
       { id: "pol-n1", module: 1, title: "Lecture 1 slides", link: "https://drive.google.com/" }
