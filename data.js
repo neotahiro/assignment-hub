@@ -25,7 +25,9 @@ readings: [
 { id: "gcst-a2", module: 2, title: "Mind Map", due: "2026-10-16", time: "22:07" }
   ],
   readings: [], notes: [] },
-{ id: "subj4", name: "EDSD 518: Sociology and Local Cosmology of Sustainable Development", assignments: [], notes: [],
+{ id: "subj4", name: "EDSD 518: Sociology and Local Cosmology of Sustainable Development", assignments: [
+      { id: "soc-a1", module: 1, title: "Assignment 1: Choose a topic of your interests related to human-ecology relations, and write a reflective piece of 500-800 words from the perspective of sustainability.", due: "2026-09-16" }
+], notes: [],
   readings: [
     { id: "soc-r1", module: 1, title: "Moran, E. F. (2006). People and Nature: An introduction to human ecological relations (pp. 1-23). Blackwell Publishing.", link: "https://kusoede.edu.np/pluginfile.php/3401/course/section/2297/People%20and%20Nature%20An%20introduction%20to%20human%20ecological%20relations%20%28pp.%201-23%29.pdf" },
     { id: "soc-r2", module: 1, title: "Seghezzo, L. (2009). The Five Dimensions of Sustainability. Environmental Politics, 18(4), 539-556.", link: "https://kusoede.edu.np/pluginfile.php/3401/course/section/2297/2%20The%20five%20dimensions%20of%20sustainability.pdf" },
