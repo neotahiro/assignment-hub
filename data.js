@@ -26,7 +26,7 @@ readings: [
   ],
   readings: [], notes: [] },
 { id: "subj4", name: "EDSD 518: Sociology and Local Cosmology of Sustainable Development", assignments: [
-      { id: "soc-a1", module: 1, title: "Assignment 1: Choose a topic of your interests related to human-ecology relations, and write a reflective piece of 500-800 words from the perspective of sustainability.", due: "2026-09-16" }
+      { id: "soc-a1", module: 1, title: "Assignment 1: Choose a topic of your interests related to human-ecology relations, and write a reflective piece of 500-800 words from the perspective of sustainability." }
 ], notes: [],
   readings: [
     { id: "soc-r1", module: 1, title: "Moran, E. F. (2006). People and Nature: An introduction to human ecological relations (pp. 1-23). Blackwell Publishing.", link: "https://kusoede.edu.np/pluginfile.php/3401/course/section/2297/People%20and%20Nature%20An%20introduction%20to%20human%20ecological%20relations%20%28pp.%201-23%29.pdf" },
