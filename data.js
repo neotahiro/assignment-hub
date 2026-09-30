@@ -9,7 +9,8 @@ const SUBJECTS = [
       { id: "pol-a2", module: 2, title: "Short response on Hobbes", due: "2026-10-09" }
     ],
     readings: [
-      { id: "pol-r1", module: 1, title: "Chapter 1 — Introduction", link: "" }
+      { id: "pol-r1", module: 1, title: "The Impacts of Climate Change by Trevor M. Letcher, Chapter 21 (pg. 491-499)", link: "https://drive.google.com/file/d/1vnGAH4kvY-da2qiB979t7ayhFILU5Gbs/view", due: "2026-09-030 },
+      { id: "pol-r1", module: 2, title: "One Dimensional Man by Herbert Marcuse, Chapter 1 (p. 1-20)", link: "", due: "2026-10-01" }
     ],
     notes: [
       { id: "pol-n1", module: 1, title: "Lecture 1 slides", link: "https://drive.google.com/" }
