@@ -66,3 +66,45 @@ h2 {
 .drive-link:hover {
     background-color: #e2e5e8;
 }
+.site-header {
+    background-color: white;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.subtitle {
+    color: #666;
+    margin-top: 8px;
+}
+
+.stats {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.stat-card {
+    flex: 1;
+    background-color: #f4f6f8;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 24px;
+}
+
+.stat-card span {
+    color: #666;
+    font-size: 14px;
+}
