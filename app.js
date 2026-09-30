@@ -18,14 +18,14 @@ function dueLabel(a) {
   if (n === 1) return `<span class="warn">Due tomorrow${t}</span>`;
   return `Due ${fmt(a.due)}${t} (${n} days)`;
 }
-function assignmentRow(a, subjName) {
+function assignmentRow(a, subjName, box = true) {
   const n = daysLeft(a.due), cls = done[a.id] ? "done" : dueAt(a) < new Date() ? "overdue" : n <= 2 ? "soon" : "";
-  return `<label class="item ${cls}"><input type="checkbox" data-id="${a.id}" ${done[a.id] ? "checked" : ""}>
-    <span><span class="t">${esc(a.title)}</span><br><span class="m">${subjName ? esc(subjName) + " · " : ""}${dueLabel(a)}</span></span></label>`;
+  return `<div class="item ${cls}">${box ? `<input type="checkbox" data-id="${a.id}" ${done[a.id] ? "checked" : ""}>` : ""}
+    <span><span class="t">${esc(a.title)}</span><br><span class="m">${subjName ? esc(subjName) + " · " : ""}${dueLabel(a)}</span></span></div>`;
 }
 function linkRow(x) {
   const title = x.link ? `<a class="t" href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.title)}</a>` : `<span class="t">${esc(x.title)}</span>`;
-  return `<label class="item ${done[x.id] ? "done" : ""}"><input type="checkbox" data-id="${x.id}" ${done[x.id] ? "checked" : ""}><span>${title}</span></label>`;
+  return `<div class="item">${title}</div>`;
 }
 
 function dashboard() {
@@ -54,7 +54,7 @@ function subjectPage(id) {
     const pend = A.filter(a => !done[a.id]).length;
     const sec = (label, items, fn) => `<h3>${label}</h3>${items.length ? items.map(fn).join("") : '<p class="empty">None yet</p>'}`;
     html += `<details data-mod="${m}" ${m === openMod ? "open" : ""}><summary>Module ${m}<span class="m">${pend ? pend + " pending" : A.length ? "all done" : ""}</span></summary>
-      <div class="body">${sec("Assignments", A, a => assignmentRow(a))}${sec("Reading list", R, linkRow)}${sec("Lecture notes", N, x => `<a class="link" href="${esc(x.link)}" target="_blank" rel="noopener">📄 ${esc(x.title)}</a>`)}</div></details>`;
+      <div class="body">${sec("Assignments", A, a => assignmentRow(a, "", false))}${sec("Reading list", R, linkRow)}${sec("Lecture notes", N, x => `<a class="link" href="${esc(x.link)}" target="_blank" rel="noopener">📄 ${esc(x.title)}</a>`)}</div></details>`;
   }
   $app.innerHTML = html;
   $app.querySelectorAll("details").forEach(d => d.addEventListener("toggle", () => { if (d.open) sessionStorageSet("open-" + id, d.dataset.mod); }));
