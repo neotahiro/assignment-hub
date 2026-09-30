@@ -16,7 +16,7 @@ readings: [
     ]
   },
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [], readings: [], notes: [
-        { id: "fsd-n1", module: 1, title: "Module 0 and 1, Week 1-3 Complete Lectures Slides", link: "https://drive.google.com/file/d/1bhnHLn1yc_vUEoe1RaRy_srAcRAuYTfH/view" }
+        { id: "fsd-n1", module: 1, title: "Module 0 and 1, Week 1-3 Complete Lectures Slides", link: "https://drive.google.com/file/d/1bhnHLn1yc_vUEoe1RaRy_srAcRAuYTfH/view" },
     { id: "fsd-n2", module: 2, title: "Module 2, Week 4 Three Pillars", link: "https://drive.google.com/file/d/1bhnHLn1yc_vUEoe1RaRy_srAcRAuYTfH/view" }
   ] },
 { id: "subj3", name: "EDSD 516: Global Change and Sustainable Technology",
