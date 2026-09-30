@@ -18,7 +18,8 @@ readings: [
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [], readings: [], notes: [] },
 { id: "subj3", name: "EDSD 516: Global Change and Sustainable Technology",
   assignments: [
-    { id: "gcst-a1", module: 2, title: "Certificate/Final Page Snapshot Upload (due 5 PM)", due: "2026-09-30" }
+    { id: "gcst-a1", module: 2, title: "Certificate/Final Page Snapshot Upload (due 5 PM)", due: "2026-09-30" },
+    { id: "gcst-a2", module: 2, title: "Mind Map (due 10:07 PM)", due: "2026-10-16" }
   ],
   readings: [], notes: [] },
   { id: "subj4", name: "EDSD 518: Sociology and Local Cosmology of Sustainable Development", assignments: [], readings: [], notes: [] },
