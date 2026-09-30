@@ -1,1 +1,3 @@
-console.log("Assignment Hub is running!");
+function markComplete() {
+    alert("Assignment completed!");
+}
