@@ -7,11 +7,12 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;",
 const today = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; };
 const parse = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
 const fmt = s => parse(s).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
-const daysLeft = s => Math.round((parse(s) - today()) / 864e5);
+const daysLeft = s => s ? Math.round((parse(s) - today()) / 864e5) : 9999;
 
-const dueAt = a => { const d = parse(a.due); if (a.time) { const [h, m] = a.time.split(":").map(Number); d.setHours(h, m); } else d.setHours(23, 59); return d; };
+const dueAt = a => { if (!a.due) return new Date(8e15); const d = parse(a.due); if (a.time) { const [h, m] = a.time.split(":").map(Number); d.setHours(h, m); } else d.setHours(23, 59); return d; };
 const fmtTime = t => { const [h, m] = t.split(":").map(Number); return new Date(2000, 0, 1, h, m).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }); };
 function dueLabel(a) {
+  if (!a.due) return "No due date";
   const n = daysLeft(a.due), t = a.time ? ", " + fmtTime(a.time) : "";
   if (dueAt(a) < new Date()) return `<span class="bad">Overdue</span> · ${fmt(a.due)}${t}`;
   if (n === 0) return `<span class="warn">Due today${t}</span>`;
