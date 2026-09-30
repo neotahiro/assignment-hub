@@ -15,7 +15,9 @@ readings: [
       { id: "pol-n1", module: 1, title: "Lecture 1 slides", link: "https://drive.google.com/" }
     ]
   },
-  { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [], readings: [], notes: [] },
+  { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [], readings: [], notes: [
+    { id: "fsd-n1", module: 2, title: "Module 2 Week 4 Three Pillars", link: "https://drive.google.com/file/d/1bhnHLn1yc_vUEoe1RaRy_srAcRAuYTfH/view" }
+  ] },
 { id: "subj3", name: "EDSD 516: Global Change and Sustainable Technology",
   assignments: [
     { id: "gcst-a1", module: 2, title: "Certificate/Final Page Snapshot Upload", due: "2026-09-30", time: "17:00" },
