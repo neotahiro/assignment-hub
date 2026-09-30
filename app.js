@@ -9,17 +9,19 @@ const parse = s => { const [y, m, d] = s.split("-").map(Number); return new Date
 const fmt = s => parse(s).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
 const daysLeft = s => Math.round((parse(s) - today()) / 864e5);
 
-function dueLabel(s) {
-  const n = daysLeft(s);
-  if (n < 0) return `<span class="bad">Overdue by ${-n} day${n === -1 ? "" : "s"}</span> · ${fmt(s)}`;
-  if (n === 0) return `<span class="warn">Due today</span>`;
-  if (n === 1) return `<span class="warn">Due tomorrow</span>`;
-  return `Due ${fmt(s)} (${n} days)`;
+const dueAt = a => { const d = parse(a.due); if (a.time) { const [h, m] = a.time.split(":").map(Number); d.setHours(h, m); } else d.setHours(23, 59); return d; };
+const fmtTime = t => { const [h, m] = t.split(":").map(Number); return new Date(2000, 0, 1, h, m).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }); };
+function dueLabel(a) {
+  const n = daysLeft(a.due), t = a.time ? ", " + fmtTime(a.time) : "";
+  if (dueAt(a) < new Date()) return `<span class="bad">Overdue</span> · ${fmt(a.due)}${t}`;
+  if (n === 0) return `<span class="warn">Due today${t}</span>`;
+  if (n === 1) return `<span class="warn">Due tomorrow${t}</span>`;
+  return `Due ${fmt(a.due)}${t} (${n} days)`;
 }
 function assignmentRow(a, subjName) {
-  const n = daysLeft(a.due), cls = done[a.id] ? "done" : n < 0 ? "overdue" : n <= 2 ? "soon" : "";
+  const n = daysLeft(a.due), cls = done[a.id] ? "done" : dueAt(a) < new Date() ? "overdue" : n <= 2 ? "soon" : "";
   return `<label class="item ${cls}"><input type="checkbox" data-id="${a.id}" ${done[a.id] ? "checked" : ""}>
-    <span><span class="t">${esc(a.title)}</span><br><span class="m">${subjName ? esc(subjName) + " · " : ""}${dueLabel(a.due)}</span></span></label>`;
+    <span><span class="t">${esc(a.title)}</span><br><span class="m">${subjName ? esc(subjName) + " · " : ""}${dueLabel(a)}</span></span></label>`;
 }
 function linkRow(x) {
   const title = x.link ? `<a class="t" href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.title)}</a>` : `<span class="t">${esc(x.title)}</span>`;
@@ -28,7 +30,7 @@ function linkRow(x) {
 
 function dashboard() {
   const all = SUBJECTS.flatMap(s => s.assignments.map(a => ({ ...a, subj: s.name })));
-  const pending = all.filter(a => !done[a.id]).sort((x, y) => x.due.localeCompare(y.due));
+  const pending = all.filter(a => !done[a.id]).sort((x, y) => dueAt(x) - dueAt(y));
   const week = pending.filter(a => daysLeft(a.due) <= 7).length;
   $app.innerHTML = `<h1>${pending.length} pending</h1>
     <p class="sub">${week} due within 7 days · ${all.length - pending.length} of ${all.length} assignments done</p>
@@ -47,7 +49,7 @@ function subjectPage(id) {
   let html = `<h1>${esc(s.name)}</h1><p class="sub"><a href="#/">← Dashboard</a></p>`;
   const openMod = Number(sessionStorageGet("open-" + id)) || 0;
   for (let m = 1; m <= MODULE_COUNT; m++) {
-    const A = s.assignments.filter(x => x.module === m).sort((x, y) => x.due.localeCompare(y.due));
+    const A = s.assignments.filter(x => x.module === m).sort((x, y) => dueAt(x) - dueAt(y));
     const R = s.readings.filter(x => x.module === m), N = s.notes.filter(x => x.module === m);
     const pend = A.filter(a => !done[a.id]).length;
     const sec = (label, items, fn) => `<h3>${label}</h3>${items.length ? items.map(fn).join("") : '<p class="empty">None yet</p>'}`;
