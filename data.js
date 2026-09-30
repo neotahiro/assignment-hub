@@ -24,7 +24,8 @@ readings: [],
 { id: "subj3", name: "EDSD 516: Global Change and Sustainable Technology",
   assignments: [
     { id: "gcst-a1", module: 2, title: "Certificate/Final Page Snapshot Upload", due: "2026-09-30", time: "17:00" },
-    { id: "gcst-a2", module: 2, title: "Mind Map", due: "2026-10-16", time: "22:07" }
+    { id: "gcst-a2", module: 2, title: "Mind Map", due: "2026-10-16", time: "22:07" },
+    { id: "gcst-a3", module: 3, title: "Assignment Three: Record a video where you must be visible in the whole frame or side by side with your narration explaining why climate change is just an one tip of coupled changes, how we should act to minimise its negative consequences to humankind. The video must have three to four minutes of narration/video where you should be visible at least for 30 seconds; the rest you can add animations if you wish, but not extending five minutes in total. Share it through Google Drive or a YouTube link in Moodle.", due: "2026-11-16", time: "20:45" }
   ],
   readings: [
     { id: "gcst-r1", module: 2, title: "The Impacts of Climate Change by Trevor M. Letcher, Chapter 21 (pg. 491-499)", link: "https://drive.google.com/file/d/1vnGAH4kvY-da2qiB979t7ayhFILU5Gbs/view", due: "2026-09-30" }
