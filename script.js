@@ -13,3 +13,4 @@ function updateStats() {
 
     assignmentCount.textContent = assignments.length;
 }
+updateStats();
