@@ -52,3 +52,17 @@ h2 {
     margin: 0;
     color: #777;
 }
+.drive-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 16px;
+    background-color: #f1f3f4;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.drive-link:hover {
+    background-color: #e2e5e8;
+}
