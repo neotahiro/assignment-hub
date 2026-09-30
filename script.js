@@ -6,3 +6,10 @@ function markComplete() {
     button.textContent = "✓ Completed";
     button.disabled = true;
 }
+
+function updateStats() {
+    const assignments = document.querySelectorAll(".assignment-card");
+    const assignmentCount = document.getElementById("assignment-count");
+
+    assignmentCount.textContent = assignments.length;
+}
