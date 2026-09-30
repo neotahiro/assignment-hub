@@ -16,9 +16,11 @@ const SUBJECTS = [
     ]
   },
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [], readings: [], notes: [] },
-  { id: "subj3", name: "EDSD 516: Global Change and Sustainable Technology", assignments: [
+{ id: "subj3", name: "EDSD 516: Global Change and Sustainable Technology",
+  assignments: [
     { id: "gcst-a1", module: 9, title: "Certificate/Final Page Snapshot Upload (due 5 PM)", due: "2026-09-30" }
-  ], readings: [], notes: [] },
+  ],
+  readings: [], notes: [] },
   { id: "subj4", name: "EDSD 518: Sociology and Local Cosmology of Sustainable Development", assignments: [], readings: [], notes: [] },
   { id: "subj5", name: "EDSD 508: Theory and Practice in Education", assignments: [], readings: [], notes: [] }
 ];
