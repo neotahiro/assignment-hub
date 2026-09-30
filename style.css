@@ -29,3 +29,5 @@ summary .m{font-weight:400}
 .empty{color:var(--mute);font-size:.9rem;margin:.2rem 0}
 .link{display:block;padding:.35rem 0}
 :focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.item.dim{opacity:.55}
+.item.missed{border-left-color:var(--bad)}
