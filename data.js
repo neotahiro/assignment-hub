@@ -69,7 +69,9 @@ readings: [],
     { id: "soc-r17", module: 3, title: "Sharma, S., Bajracharya, R., & Sitaula, B. (2009). Indigenous technology knowledge in Nepal: A review. Indian Journal of Traditional Knowledge, 8(4), 569-576.", link: "https://drive.google.com/file/d/10ARg8b3YyU11eUn3z7dvOHBDwFbtek3h/view" },
     { id: "soc-r18", module: 3, title: "Magni, G. (2017). Indigenous knowledge and implications for the sustainable development agenda. European Journal of Education, 52(4), 437-447.", link: "https://drive.google.com/file/d/1rGqcuNgIhM-WKyvn3LQtWjfI_On5kkCL/view" }
   ] },
-  { id: "subj5", name: "EDSD 508: Theory and Practice in Education", assignments: [], readings: [
+  { id: "subj5", name: "EDSD 508: Theory and Practice in Education", assignments: [
+    { id: "tpe-a1", module: 1, title: "Paper Review: Creative Learning for Sustainability in a World of AI", link: "https://drive.google.com/file/d/15kUASWSs_fpXASePgA_ngTf2mnU1sE_g/view", due: "2026-10-20" }
+  ], readings: [
     { id: "tpe-r1", module: 1, title: "Dewey, J. (1938). Experience and Education. Kappa Delta Pi.", link: "https://drive.google.com/file/d/12eonJ5Fn4MzYIu2QHdBoElxk9ry9y72N/view" },
     { id: "tpe-r2", module: 1, title: "Freire, P. (1970). Pedagogy of the Oppressed (30th anniversary ed.). Continuum.", link: "https://drive.google.com/file/d/1IXirxggMQSngh7blwSuG5MOFpv4IeVyU/view" },
     { id: "tpe-r3", module: 1, title: "Schön, D. A. (1983). The Reflective Practitioner: How Professionals Think in Action. Basic Books.", link: "https://drive.google.com/file/d/1L0fGI02_fTisTnCCLR7_5h3LqTmFe8mz/view" },
