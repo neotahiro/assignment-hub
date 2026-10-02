@@ -23,14 +23,27 @@ readings: [],
   ] },
 { id: "subj3", name: "EDSD 516: Global Change and Sustainable Technology",
   assignments: [
-    { id: "gcst-a1", module: 2, title: "Certificate/Final Page Snapshot Upload", due: "2026-09-30", time: "17:00" },
-    { id: "gcst-a2", module: 2, title: "Mind Map", due: "2026-10-16", time: "22:07" },
-    { id: "gcst-a3", module: 3, title: "Assignment Three: Record a video where you must be visible in the whole frame or side by side with your narration explaining why climate change is just an one tip of coupled changes, how we should act to minimise its negative consequences to humankind. The video must have three to four minutes of narration/video where you should be visible at least for 30 seconds; the rest you can add animations if you wish, but not extending five minutes in total. Share it through Google Drive or a YouTube link in Moodle.", due: "2026-11-16", time: "20:45" }
+    { id: "gcst-a1", module: 1, title: "Article Reviews", done: true },
+    { id: "gcst-a2", module: 2, title: "Certificate/Final Page Snapshot Upload", due: "2026-09-30", time: "17:00" },
+    { id: "gcst-a3", module: 2, title: "Mind Map", due: "2026-10-16", time: "22:07" },
+    { id: "gcst-a4", module: 3, title: "Assignment Three: Record a video where you must be visible in the whole frame or side by side with your narration explaining why climate change is just an one tip of coupled changes, how we should act to minimise its negative consequences to humankind. The video must have three to four minutes of narration/video where you should be visible at least for 30 seconds; the rest you can add animations if you wish, but not extending five minutes in total. Share it through Google Drive or a YouTube link in Moodle.", due: "2026-11-16", time: "20:45" }
   ],
   readings: [
-    { id: "gcst-r1", module: 2, title: "The Impacts of Climate Change by Trevor M. Letcher, Chapter 21 (pg. 491-499)", link: "https://drive.google.com/file/d/1vnGAH4kvY-da2qiB979t7ayhFILU5Gbs/view" }
+    { id: "gcst-r1", module: 1, title: "Sustainable Development (1987-2005) - An Oxymoron Comes of Age", link: "https://drive.google.com/file/d/1Zmt_098z7ScZWiXegy0BZetYhoJVlrFE/view" },
+    { id: "gcst-r2", module: 1, title: "Conception of time, socioeconomic development and cultural values by Hamid Yeganeh", link: "https://drive.google.com/file/d/1moSm7MmNIxu50XcTLS7_CMvPl1RXwHMx/view" },
+    { id: "gcst-r3", module: 1, title: "Observed trends in Earth System behavior by WIll Steffen", link: "https://drive.google.com/file/d/1A1L__4GEhANJH9MyT5EVCfIap0kOXgnm/view" },
+    { id: "gcst-r4", module: 2, title: "The Impacts of Climate Change by Trevor M. Letcher, Chapter 21 (pg. 491-499)", link: "https://drive.google.com/file/d/1vnGAH4kvY-da2qiB979t7ayhFILU5Gbs/view" },
+    { id: "gcst-r5", module: 3, title: "The Age of Sustainable Development by Jefferey Sachs, Chapter 12: Climate Change (pg. 393-440)", link: "https://drive.google.com/file/d/1IgJt-QgQzjzkb-r3iKpLccWArC9s1bAM/view?usp=drive_link" }
   ],
-  notes: [] },
+  notes: [
+   { id: "gcst-n1", module: 1, title: "Course Outline", link: "https://drive.google.com/file/d/1Zmt_098z7ScZWiXegy0BZetYhoJVlrFE/view" },
+    { id: "gcst-n2", module: 1, title: "Lecture 1: Introduction", link: "https://docs.google.com/presentation/d/1G8k5T0TIETgO6Ckt09mLjx_xp3_yQu-o/edit?usp=drive_link&ouid=118012022294365404947&rtpof=true&sd=true" },
+    { id: "gcst-n3", module: 1, title: "Lecture 2: Global Change, Natural System and Changes", link: "https://drive.google.com/file/d/1O22jSrk9sIkH2dyzajZiBIhkfJbpMeI9/view" },
+    { id: "gcst-n4", module: 1, title: "Lecture 2: Global Change, Natural System and Changes (contd...)", link: "https://drive.google.com/file/d/1cvckCsOo-VMoVNzbsfN5nD0lV44qNLID/view" },
+    { id: "gcst-n5", module: 2, title: "Lecture: Global Changes, Climate Change Interactions and Impacts", link: "https://docs.google.com/presentation/d/1NxaZ35ndhO7pN3wtOFLZ1_n6dZipShAJ/edit?usp=drive_link&ouid=118012022294365404947&rtpof=true&sd=true" },
+    { id: "gcst-n6", module: 2, title: "Lecture: Social Impacts of Global Changes including CC", link: "https://docs.google.com/presentation/d/11OgCxSq-van5XlMprZT0X361T81XgNNm/edit?usp=drive_link&ouid=118012022294365404947&rtpof=true&sd=true" },
+    { id: "gcst-n7", module: 3, title: "Getting Deeper in Climate Science", link: "https://docs.google.com/presentation/d/12Dg2tkDYfiVKn0PhrO_53kPQmrRccby2/edit?usp=drive_link&ouid=118012022294365404947&rtpof=true&sd=true" }
+  ] },
 { id: "subj4", name: "EDSD 518: Sociology and Local Cosmology of Sustainable Development", assignments: [
       { id: "soc-a1", module: 1, title: "Assignment 1: Choose a topic of your interests related to human-ecology relations, and write a reflective piece of 500-800 words from the perspective of sustainability.", done: true },
       { id: "soc-a2", module: 2, title: "Write a short reflective note on the relationship between consumerism and ecology, focusing on sustainability and human responsibility.", done: true },
