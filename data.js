@@ -81,4 +81,7 @@ readings: [],
     { id: "tpe-n2", module: 1, title: "Week 3 Presentation", link: "https://docs.google.com/presentation/d/1FwTdGEsH8BVr_cmCBJ_IlxHyQvW3mrVS/edit?slide=id.p1#slide=id.p1" }
   ] }
 ];
+const GENERAL = [
+  { id: "gen-a1", title: "Writing Task. URGENT! Tuesday Deadline.", due: "2026-10-06" }
+];
 const MODULE_COUNT = 5;
