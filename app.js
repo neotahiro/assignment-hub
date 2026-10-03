@@ -44,7 +44,7 @@ function dashboard() {
   const all = SUBJECTS.flatMap(s => [
     ...s.assignments.map(a => ({ ...a, kind: "assignment", subj: s.name, sid: s.id })),
     ...s.readings.filter(r => r.due).map(r => ({ ...r, kind: "reading", subj: s.name, sid: s.id }))
-  ]);
+  ]).concat((typeof GENERAL !== "undefined" ? GENERAL : []).map(a => ({ ...a, kind: "assignment", subj: "General", sid: "general" })));
   const upcoming = all.filter(a => status(a) === "upcoming" && (a.kind === "assignment" || daysLeft(a.due) <= 7)).sort((x, y) => dueAt(x) - dueAt(y));
   const week = upcoming.filter(a => daysLeft(a.due) <= 7).length;
   $app.innerHTML = `<h1>${upcoming.length} upcoming</h1>
