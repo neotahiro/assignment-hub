@@ -77,11 +77,26 @@ function subjectPage(id) {
 function sessionStorageGet(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
 function sessionStorageSet(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
 
+// GoatCounter (cookie-free analytics). Safe if the script is blocked or still loading.
+function track(path, title, event, tries = 0) {
+  try {
+    if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path, title, event: !!event });
+    else if (tries < 10) setTimeout(() => track(path, title, event, tries + 1), 500);
+  } catch (e) {}
+}
+$app.addEventListener("click", e => {
+  const a = e.target.closest && e.target.closest("a[href^='http']");
+  if (!a) return;
+  track(a.classList.contains("link") ? "click-note" : "click-reading", a.textContent.trim().slice(0, 100), true);
+});
+
 function route() {
   const h = location.hash.replace(/^#\/?/, "");
   const m = h.match(/^subject\/(.+)$/);
   $nav.innerHTML = SUBJECTS.map(s => `<a href="#/subject/${s.id}" class="${m && m[1] === s.id ? "on" : ""}">${esc(s.name)}</a>`).join("");
   m ? subjectPage(m[1]) : dashboard();
+  const subj = m && SUBJECTS.find(x => x.id === m[1]);
+  track(location.pathname + (m ? "#/subject/" + m[1] : ""), subj ? subj.name : "Dashboard");
 }
 addEventListener("hashchange", route);
 route();
