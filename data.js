@@ -9,7 +9,11 @@ const SUBJECTS = [
     ],
 readings: [],
     notes: [
-      { id: "pol-n1", module: 1, title: "Lecture 1 slides", link: "https://drive.google.com/" }
+      { id: "pol-n1", module: 1, title: "Module 1.0. Basics of Environment and its Importance", link: "https://docs.google.com/presentation/d/1LeBKo2KLYQ7hDLOb7kjO5xE5otVqq3_q/edit" },
+      { id: "pol-n2", module: 1, title: "Module 1.1. Basic Concept of Ecology", link: "https://drive.google.com/file/d/1pBsIo5IwGRIPMFM1o9KTW3hfZp4HLam1/view" },
+      { id: "pol-n3", module: 1, title: "Module 1.2 Community Ecology", link: "https://drive.google.com/file/d/1W1fGDrDZaAS7ezNGdE99yzRWrFEkK1K_/view" },
+      { id: "pol-n4", module: 1, title: "Module 1.3 Ecological Interactions", link: "https://drive.google.com/file/d/1m_DzABMLI4y7RaQj5thlvieKa1urFMNm/view" },
+      { id: "pol-n5", module: 1, title: "Module 1.4 Ecological Balance and Determinants", link: "https://drive.google.com/file/d/1cPo61u9jKtT_NT7n4HtogRThqD83aF40/view" }
     ]
   },
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [
