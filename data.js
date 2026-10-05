@@ -9,7 +9,8 @@ const SUBJECTS = [
       { id: "pol-a2", module: 1, title: "Write down a 600-800 words reflection report on how understanding the basics of ecology including population ecology (structure, dynamics), community ecology (structure, dynamics), ecological relationships/interactions and interdependence and anthropogenic determinants of ecological imbalance have applied relevance to sustainable development. Shape your write-up based on the discussions in the class.", done: true }
     ],
 readings: [
-      { id: "pol-r1", module: 2, title: "Elements of Ecology by Thomas M. Smith and Robert Leo Smith (9th edition)", link: "https://drive.google.com/file/d/1SwOKdGSxtxOXQqG9MdonUOEzlAwCFQ-u/view" }
+      { id: "pol-r1", module: 1, title: "Principles of Environmental Science - Inquiry and Applications by William P. Cunningham, Mary Ann Cunningham, Catherine M. OReilly (10th edition)", link: "https://drive.google.com/file/d/1zMizpSzkb7RxLHBkmfuA2pQr2Lg3mKT9/view" }
+      { id: "pol-r2", module: 2, title: "Elements of Ecology by Thomas M. Smith and Robert Leo Smith (9th edition)", link: "https://drive.google.com/file/d/1SwOKdGSxtxOXQqG9MdonUOEzlAwCFQ-u/view" }
 ],
     notes: [
       { id: "pol-n1", module: 1, title: "Module 1.0 Basics of Environment and its Importance", link: "https://docs.google.com/presentation/d/1LeBKo2KLYQ7hDLOb7kjO5xE5otVqq3_q/edit" },
