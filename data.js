@@ -8,13 +8,15 @@ const SUBJECTS = [
       { id: "pol-a1", module: 1, title: "The Scholars Who Paved The Way Further: Write down in 1 or 2 sentences about the contribution of environment/conservation scholars listed in the presentation slides in today's session.", done: true },
       { id: "pol-a2", module: 1, title: "Write down a 600-800 words reflection report on how understanding the basics of ecology including population ecology (structure, dynamics), community ecology (structure, dynamics), ecological relationships/interactions and interdependence and anthropogenic determinants of ecological imbalance have applied relevance to sustainable development. Shape your write-up based on the discussions in the class.", done: true }
     ],
-readings: [],
+readings: [
+      { id: "pol-r1", module: 2, title: "Elements of Ecology by Thomas M. Smith and Robert Leo Smith (9th edition)", link: "https://drive.google.com/file/d/1SwOKdGSxtxOXQqG9MdonUOEzlAwCFQ-u/view" }
+],
     notes: [
       { id: "pol-n1", module: 1, title: "Module 1.0 Basics of Environment and its Importance", link: "https://docs.google.com/presentation/d/1LeBKo2KLYQ7hDLOb7kjO5xE5otVqq3_q/edit" },
       { id: "pol-n2", module: 1, title: "Module 1.1 Basic Concept of Ecology", link: "https://drive.google.com/file/d/1pBsIo5IwGRIPMFM1o9KTW3hfZp4HLam1/view" },
       { id: "pol-n3", module: 1, title: "Module 1.2 Community Ecology", link: "https://drive.google.com/file/d/1W1fGDrDZaAS7ezNGdE99yzRWrFEkK1K_/view" },
       { id: "pol-n4", module: 1, title: "Module 1.3 Ecological Interactions", link: "https://drive.google.com/file/d/1m_DzABMLI4y7RaQj5thlvieKa1urFMNm/view" },
-      { id: "pol-n5", module: 1, title: "Module 1.4 Ecological Balance and Determinants", link: "https://drive.google.com/file/d/1cPo61u9jKtT_NT7n4HtogRThqD83aF40/view" }
+      { id: "pol-n5", module: 1, title: "Module 1.4 Ecological Balance and Determinants", link: "https://drive.google.com/file/d/1cPo61u9jKtT_NT7n4HtogRThqD83aF40/view" }     
     ]
   },
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [
