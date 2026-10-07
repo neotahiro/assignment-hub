@@ -90,6 +90,7 @@ readings: [
   ] }
 ];
 const GENERAL = [
-  { id: "gen-a1", title: "Writing Task. URGENT! Tuesday Deadline.", due: "2026-10-06" }
+  { id: "gen-a1", title: "Writing Task. URGENT! Tuesday Deadline.", due: "2026-10-06" },
+  { id: "gen-a1", title: "Exam Registration Form Submission. Deadline today.", due: "2026-10-07" }
 ];
 const MODULE_COUNT = 5;
