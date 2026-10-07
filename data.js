@@ -26,8 +26,9 @@ readings: [
   ], readings: [], notes: [
     { id: "fsd-n1", module: 1, title: "Module 0 and 1, Week 1-3 Complete Lectures Slides", link: "https://drive.google.com/file/d/1XrbfI4friEV9r65EVqeO_IyEPUa5U_Dk/view" },
     { id: "fsd-n2", module: 2, title: "Module 2, Week 4 Three Pillars", link: "https://drive.google.com/file/d/1bhnHLn1yc_vUEoe1RaRy_srAcRAuYTfH/view" },
-    { id: "fsd-n3", module: 1, title: "Community Engagement General Implementation Directives", link: "https://docs.google.com/document/d/1hIQpVbFYvbi1jqSU8hSf1JplTqv_i1Tq/edit" },
-    { id: "fsd-n4", module: 2, title: "Individual Assignment: Environmental Issues in Nepal (2026)", link: "https://drive.google.com/file/d/1hzDeERv8ONANkicXdH33BdIHLaty2yzi/view" }
+    { id: "fsd-n3", module: 2, title: "Module 2, Week 5 Environmental Sustainability", link: "https://drive.google.com/file/d/1c5Jkr2F13cmxUFH0DlrEOhfEKZf0MERs/view" },
+    { id: "fsd-n4", module: 1, title: "Community Engagement General Implementation Directives", link: "https://docs.google.com/document/d/1hIQpVbFYvbi1jqSU8hSf1JplTqv_i1Tq/edit" },
+    { id: "fsd-n5", module: 2, title: "Individual Assignment: Environmental Issues in Nepal (2026)", link: "https://drive.google.com/file/d/1hzDeERv8ONANkicXdH33BdIHLaty2yzi/view" }
   ] },
 { id: "subj3", name: "EDSD 516: Global Change and Sustainable Technology",
   assignments: [
