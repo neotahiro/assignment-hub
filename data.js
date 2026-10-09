@@ -91,8 +91,9 @@ readings: [
     { id: "tpe-r7", module: 1, title: "Transforming MENtalities -  gender equality and masculinities in India", link: "https://drive.google.com/file/d/1-xR0GbYVuosOdcjwak7dbht66zUWbVgo/view" },
     { id: "tpe-r8", module: 1, title: "Cracking the code - girls' and women's education in science, technology, engineering and mathematics (STEM)", link: "https://drive.google.com/file/d/1gTctW3F7rhI1WZin9AYTIOIXM-iHZpXw/view" }
   ], notes: [
-    { id: "tpe-n1", module: 1, title: "Week 1 Presentation", link: "https://docs.google.com/presentation/d/1yNDxNlI9RE-5JKFtpVx5oFsi4a07Aepm/edit?slide=id.p1#slide=id.p1" },
-    { id: "tpe-n2", module: 1, title: "Week 3 Presentation", link: "https://docs.google.com/presentation/d/1FwTdGEsH8BVr_cmCBJ_IlxHyQvW3mrVS/edit?slide=id.p1#slide=id.p1" }
+    { id: "tpe-n1", module: 1, title: "Week 1 Presentation", link: "https://docs.google.com/presentation/d/1yNDxNlI9RE-5JKFtpVx5oFsi4a07Aepm/edit" },
+    { id: "tpe-n2", module: 1, title: "Week 3 Presentation", link: "https://docs.google.com/presentation/d/1FwTdGEsH8BVr_cmCBJ_IlxHyQvW3mrVS/edit" },
+    { id: "tpe-n3", module: 1, title: "Week 4-5 Presentation", link: "https://docs.google.com/presentation/d/1H2p4Vb3aJGZ7O8yTicqNSIlG6kaIM76E/edit" }
   ] }
 ];
 const GENERAL = [
