@@ -30,7 +30,7 @@ function heatStyle(a) {
 function assignmentRow(a, subjName, heat = false) {
   const rd = a.kind === "reading", st = status(a);
   const cls = rd && st === "missed" ? "past" : st, dim = cls === "submitted" || cls === "closed" || cls === "past" ? " dim" : "";
-  const title = rd && a.link ? `<a class="t" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(a.title)}</a>` : `<span class="t">${esc(a.title)}</span>`;
+  const title = a.link ? `<a class="t" data-kind="${rd ? "reading" : "assignment"}" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(a.title)}</a>` : `<span class="t">${esc(a.title)}</span>`;
   return `<div class="item ${cls}${dim}" ${heat ? heatStyle(a) : ""}>
     <span>${rd ? '<span class="tag">Reading</span>' : ""}${title}<br><span class="m">${subjName ? esc(subjName) + " · " : ""}${dueLabel(a)}</span></span></div>`;
 }
@@ -38,6 +38,22 @@ function linkRow(x) {
   const title = x.link ? `<a class="t" href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.title)}</a>` : `<span class="t">${esc(x.title)}</span>`;
   return `<div class="item">${title}</div>`;
 }
+
+// ---- Semesters ----
+const semOf = s => s.semester || 1;
+const SEMS = (typeof SEMESTERS !== "undefined" && SEMESTERS.length) ? SEMESTERS : [{ id: 1, name: "Semester 1", start: "0000-01-01" }];
+const semName = n => (SEMS.find(x => x.id === n) || {}).name || "Semester " + n;
+const subjectsOf = n => SUBJECTS.filter(s => semOf(s) === n);
+const hasSubjects = n => subjectsOf(n).length > 0;
+const isoToday = () => { const t = new Date(); return t.getFullYear() + "-" + String(t.getMonth() + 1).padStart(2, "0") + "-" + String(t.getDate()).padStart(2, "0"); };
+// Current = latest semester whose start date has passed AND that has at least one subject (safety rule).
+const currentSem = () => {
+  const ok = SEMS.filter(x => x.start <= isoToday() && hasSubjects(x.id)).sort((a, b) => a.start.localeCompare(b.start));
+  return ok.length ? ok[ok.length - 1].id : (SEMS.find(x => hasSubjects(x.id)) || SEMS[0]).id;
+};
+const pastSems = cur => SEMS.filter(x => x.id !== cur && x.start <= isoToday() && hasSubjects(x.id));
+const modCount = s => s.modules || (typeof MODULE_COUNT !== "undefined" ? MODULE_COUNT : 5);
+let viewSem = 1;
 
 function dashboard() {
   // Assignments always show while upcoming; readings only if they have a due date within 7 days.
@@ -47,13 +63,25 @@ function dashboard() {
   ]).concat((typeof GENERAL !== "undefined" ? GENERAL : []).map(a => ({ ...a, kind: "assignment", subj: "General", sid: "general" })));
   const upcoming = all.filter(a => status(a) === "upcoming" && (a.kind === "assignment" || daysLeft(a.due) <= 7)).sort((x, y) => dueAt(x) - dueAt(y));
   const week = upcoming.filter(a => daysLeft(a.due) <= 7).length;
-  $app.innerHTML = `<h1>${upcoming.length} upcoming</h1>
-    <p class="sub">${week} due within 7 days</p>
+  const cur = currentSem(), past = pastSems(cur);
+  const sw = past.length ? `<div class="sem">${past.map(x => `<a href="#/semester/${x.id}">${esc(x.name)} ▸</a>`).join("")}</div>` : "";
+  $app.innerHTML = `<div class="head"><div><h1>${upcoming.length} upcoming</h1>
+    <p class="sub">${esc(semName(cur))} · ${week} due within 7 days</p></div>${sw}</div>
     <h2>Upcoming</h2>
     ${upcoming.map(a => assignmentRow(a, a.subj, true)).join("") || '<p class="empty">Nothing upcoming.</p>'}
     <h2>Subjects</h2>
-    <div class="grid">${SUBJECTS.map(s => {
+    <div class="grid">${subjectsOf(cur).map(s => {
       const p = upcoming.filter(a => a.sid === s.id).length;
+      return `<a class="subj" href="#/subject/${s.id}"><b>${esc(s.name)}</b><span class="m">${p} upcoming</span></a>`;
+    }).join("")}</div>`;
+}
+
+function semesterPage(n) {
+  const cur = currentSem();
+  $app.innerHTML = `<div class="head"><div><h1>${esc(semName(n))}</h1>
+    <p class="sub">Archived · <a href="#/">← Back to ${esc(semName(cur))}</a></p></div></div>
+    <div class="grid">${subjectsOf(n).map(s => {
+      const p = s.assignments.filter(a => status(a) === "upcoming").length;
       return `<a class="subj" href="#/subject/${s.id}"><b>${esc(s.name)}</b><span class="m">${p} upcoming</span></a>`;
     }).join("")}</div>`;
 }
@@ -61,9 +89,10 @@ function dashboard() {
 function subjectPage(id) {
   const s = SUBJECTS.find(x => x.id === id);
   if (!s) { $app.innerHTML = '<h1>Not found</h1><p><a href="#/">Back to dashboard</a></p>'; return; }
-  let html = `<h1>${esc(s.name)}</h1><p class="sub"><a href="#/">← Dashboard</a></p>`;
+  const sn = semOf(s), isCur = sn === currentSem();
+  let html = `<h1>${esc(s.name)}</h1><p class="sub"><a href="${isCur ? "#/" : "#/semester/" + sn}">← ${isCur ? "Dashboard" : esc(semName(sn))}</a> · ${esc(semName(sn))}</p>`;
   const openMod = Number(sessionStorageGet("open-" + id)) || 0;
-  for (let m = 1; m <= MODULE_COUNT; m++) {
+  for (let m = 1; m <= modCount(s); m++) {
     const A = s.assignments.filter(x => x.module === m).sort((x, y) => dueAt(x) - dueAt(y));
     const R = s.readings.filter(x => x.module === m), N = s.notes.filter(x => x.module === m);
     const up = A.filter(a => status(a) === "upcoming").length;
@@ -87,16 +116,23 @@ function track(path, title, event, tries = 0) {
 $app.addEventListener("click", e => {
   const a = e.target.closest && e.target.closest("a[href^='http']");
   if (!a) return;
-  track(a.classList.contains("link") ? "click-note" : "click-reading", a.textContent.trim().slice(0, 100), true);
+  track("click-" + (a.dataset.kind || (a.classList.contains("link") ? "note" : "reading")) + "-s" + viewSem, a.textContent.trim().slice(0, 100), true);
 });
 
 function route() {
   const h = location.hash.replace(/^#\/?/, "");
-  const m = h.match(/^subject\/(.+)$/);
-  $nav.innerHTML = SUBJECTS.map(s => `<a href="#/subject/${s.id}" class="${m && m[1] === s.id ? "on" : ""}">${esc(s.name)}</a>`).join("");
-  m ? subjectPage(m[1]) : dashboard();
-  const subj = m && SUBJECTS.find(x => x.id === m[1]);
-  track(location.pathname + (m ? "#/subject/" + m[1] : ""), subj ? subj.name : "Dashboard");
+  const ms = h.match(/^subject\/(.+)$/), mm = h.match(/^semester\/(\d+)$/);
+  const cur = currentSem();
+  let sem = cur;
+  if (ms) { const sj = SUBJECTS.find(x => x.id === ms[1]); if (sj) sem = semOf(sj); }
+  else if (mm && Number(mm[1]) !== cur && hasSubjects(Number(mm[1]))) sem = Number(mm[1]);
+  viewSem = sem;
+  $nav.innerHTML = subjectsOf(sem).map(s => `<a href="#/subject/${s.id}" class="${ms && ms[1] === s.id ? "on" : ""}">${esc(s.name)}</a>`).join("");
+  ms ? subjectPage(ms[1]) : sem !== cur ? semesterPage(sem) : dashboard();
+  const subj = ms && SUBJECTS.find(x => x.id === ms[1]);
+  if (subj) track(location.pathname + "#/sem" + sem + "/subject/" + subj.id, "Sem " + sem + " · " + subj.name);
+  else if (sem !== cur) track(location.pathname + "#/sem" + sem, semName(sem) + " (archive)");
+  else track(location.pathname, "Dashboard · " + semName(cur));
 }
 addEventListener("hashchange", route);
 route();
