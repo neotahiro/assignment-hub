@@ -84,7 +84,9 @@ readings: [
     { id: "tpe-r1", module: 1, title: "Dewey, J. (1938). Experience and Education. Kappa Delta Pi.", link: "https://drive.google.com/file/d/12eonJ5Fn4MzYIu2QHdBoElxk9ry9y72N/view" },
     { id: "tpe-r2", module: 1, title: "Freire, P. (1970). Pedagogy of the Oppressed (30th anniversary ed.). Continuum.", link: "https://drive.google.com/file/d/1IXirxggMQSngh7blwSuG5MOFpv4IeVyU/view" },
     { id: "tpe-r3", module: 1, title: "Schön, D. A. (1983). The Reflective Practitioner: How Professionals Think in Action. Basic Books.", link: "https://drive.google.com/file/d/1L0fGI02_fTisTnCCLR7_5h3LqTmFe8mz/view" },
-    { id: "tpe-r4", module: 1, title: "RSA ANIMATE: Changing Education Paradigms. (2010, October 14). YouTube.", link: "https://www.youtube.com/watch?v=zDZFcDGpL4" }
+    { id: "tpe-r4", module: 1, title: "RSA ANIMATE: Changing Education Paradigms. (2010, October 14). YouTube.", link: "https://www.youtube.com/watch?v=zDZFcDGpL4" },
+    { id: "tpe-r5", module: 1, title: "Three Domains of Learning - Cognitive, Affective and Psychomotor", link: "https://drive.google.com/file/d/1W_ay61iOVZebWQLhjNpg3VZzJPwtBPlW/view" },
+    { id: "tpe-r6", module: 1, title: "Taylor Constructivism", link: "https://drive.google.com/file/d/1E6M0BkE9X7DjYmjarzUcpKEaNObkUSFy/view" }
   ], notes: [
     { id: "tpe-n1", module: 1, title: "Week 1 Presentation", link: "https://docs.google.com/presentation/d/1yNDxNlI9RE-5JKFtpVx5oFsi4a07Aepm/edit?slide=id.p1#slide=id.p1" },
     { id: "tpe-n2", module: 1, title: "Week 3 Presentation", link: "https://docs.google.com/presentation/d/1FwTdGEsH8BVr_cmCBJ_IlxHyQvW3mrVS/edit?slide=id.p1#slide=id.p1" }
