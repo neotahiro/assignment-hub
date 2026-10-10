@@ -1,0 +1,31 @@
+name: Deadline reminders
+
+on:
+  schedule:
+    - cron: "30 0 * * *"   # 00:30 UTC = about 6:15 AM in Nepal. GitHub may start a few minutes late.
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (print what would be sent, send nothing)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-save nodemailer@6
+      - run: node scripts/send-reminders.js
+        env:
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENTS: ${{ secrets.RECIPIENTS }}
+          REPLY_TO: ${{ secrets.REPLY_TO }}
