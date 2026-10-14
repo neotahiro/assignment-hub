@@ -31,8 +31,9 @@ function assignmentRow(a, subjName, heat = false) {
   const rd = a.kind === "reading", st = status(a);
   const cls = rd && st === "missed" ? "past" : st, dim = cls === "submitted" || cls === "closed" || cls === "past" ? " dim" : "";
   const title = a.link ? `<a class="t" data-kind="${rd ? "reading" : "assignment"}" href="${esc(a.link)}" target="_blank" rel="noopener">${esc(a.title)}</a>` : `<span class="t">${esc(a.title)}</span>`;
+  const mail = a.email ? ` <a class="mail" data-kind="email" data-title="${esc(a.title.slice(0, 80))}" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=${encodeURIComponent(a.email)}" target="_blank" rel="noopener" title="Email ${esc(a.email)}" aria-label="Email this assignment">✉ Email</a>` : "";
   return `<div class="item ${cls}${dim}" ${heat ? heatStyle(a) : ""}>
-    <span>${rd ? '<span class="tag">Reading</span>' : ""}${title}<br><span class="m">${subjName ? esc(subjName) + " · " : ""}${dueLabel(a)}</span></span></div>`;
+    <span>${rd ? '<span class="tag">Reading</span>' : ""}${title}${mail}<br><span class="m">${subjName ? esc(subjName) + " · " : ""}${dueLabel(a)}</span></span></div>`;
 }
 function linkRow(x) {
   const title = x.link ? `<a class="t" href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.title)}</a>` : `<span class="t">${esc(x.title)}</span>`;
@@ -116,7 +117,7 @@ function track(path, title, event, tries = 0) {
 $app.addEventListener("click", e => {
   const a = e.target.closest && e.target.closest("a[href^='http']");
   if (!a) return;
-  track("click-" + (a.dataset.kind || (a.classList.contains("link") ? "note" : "reading")) + "-s" + viewSem, a.textContent.trim().slice(0, 100), true);
+  track("click-" + (a.dataset.kind || (a.classList.contains("link") ? "note" : "reading")) + "-s" + viewSem, (a.dataset.title || a.textContent).trim().slice(0, 100), true);
 });
 
 function route() {
