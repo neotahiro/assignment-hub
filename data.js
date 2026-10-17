@@ -22,7 +22,7 @@ readings: [
   },
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [
     { id: "fsd-a1", module: 1, title: "Community Engagement 2026", link: "https://drive.google.com/file/d/1e6h_cu_luMan6sABGRYJ0KwEjgI8POsi/view", due: "2026-12-19" },
-    { id: "fsd-a2", module: 2, title: "Individual Assignment: Environmental Issues in Nepal (2026)", link: "https://drive.google.com/file/d/1hzDeERv8ONANkicXdH33BdIHLaty2yzi/view", due: "2026-10-16", email: "ashish.sinha@kusoed.edu.np" }
+    { id: "fsd-a2", module: 2, title: "Individual Assignment: Environmental Issues in Nepal (2026)", link: "https://drive.google.com/file/d/1hzDeERv8ONANkicXdH33BdIHLaty2yzi/view", due: "2026-10-16", email: "ashish.sinha@kusoed.edu.np", done: true }
   ], readings: [], notes: [
     { id: "fsd-n1", module: 1, title: "Module 0 and 1, Week 1-3 Complete Lectures Slides", link: "https://drive.google.com/file/d/1XrbfI4friEV9r65EVqeO_IyEPUa5U_Dk/view" },
     { id: "fsd-n2", module: 2, title: "Module 2, Week 4 Three Pillars", link: "https://drive.google.com/file/d/1bhnHLn1yc_vUEoe1RaRy_srAcRAuYTfH/view" },
@@ -34,7 +34,7 @@ readings: [
   assignments: [
     { id: "gcst-a1", module: 1, title: "Article Reviews", link: "https://kusoede.edu.np/mod/assign/view.php?id=75341", done: true },
     { id: "gcst-a2", module: 2, title: "Certificate/Final Page Snapshot Upload", due: "2026-09-30", time: "17:00", link: "https://kusoede.edu.np/mod/assign/view.php?id=62420" },
-    { id: "gcst-a3", module: 2, title: "Mind Map", due: "2026-10-16", time: "22:07", link: "https://kusoede.edu.np/mod/assign/view.php?id=57991" },
+    { id: "gcst-a3", module: 2, title: "Mind Map", due: "2026-10-16", time: "22:07", link: "https://kusoede.edu.np/mod/assign/view.php?id=57991", done:true },
     { id: "gcst-a4", module: 3, title: "Assignment Three: Record a video where you must be visible in the whole frame or side by side with your narration explaining why climate change is just an one tip of coupled changes, how we should act to minimise its negative consequences to humankind. The video must have three to four minutes of narration/video where you should be visible at least for 30 seconds; the rest you can add animations if you wish, but not extending five minutes in total. Share it through Google Drive or a YouTube link in Moodle.", link: "https://kusoede.edu.np/mod/assign/view.php?id=57992", due: "2026-11-16", time: "20:45" }
   ],
   readings: [
