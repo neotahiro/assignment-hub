@@ -89,11 +89,14 @@ readings: [
     { id: "tpe-r5", module: 1, title: "Three Domains of Learning - Cognitive, Affective and Psychomotor", link: "https://drive.google.com/file/d/1W_ay61iOVZebWQLhjNpg3VZzJPwtBPlW/view" },
     { id: "tpe-r6", module: 1, title: "Taylor Constructivism", link: "https://drive.google.com/file/d/1E6M0BkE9X7DjYmjarzUcpKEaNObkUSFy/view" },
     { id: "tpe-r7", module: 1, title: "Transforming MENtalities -  gender equality and masculinities in India", link: "https://drive.google.com/file/d/1-xR0GbYVuosOdcjwak7dbht66zUWbVgo/view" },
-    { id: "tpe-r8", module: 1, title: "Cracking the code - girls' and women's education in science, technology, engineering and mathematics (STEM)", link: "https://drive.google.com/file/d/1gTctW3F7rhI1WZin9AYTIOIXM-iHZpXw/view" }
+    { id: "tpe-r8", module: 1, title: "Cracking the code - girls' and women's education in science, technology, engineering and mathematics (STEM)", link: "https://drive.google.com/file/d/1gTctW3F7rhI1WZin9AYTIOIXM-iHZpXw/view" },
+    { id: "tpe-r9", module: 1, title: "Rethinking Quality Science Education for Climate Action: Transdisciplinary Education for Transformative Learning and Engagement", link: "https://drive.google.com/file/d/1bkTqUaaXqr2WA3adacTqQJgvJ6Du5tF9/view" },
+    { id: "tpe-r10", module: 1, title: "Transformative learning theory: a neurobiological perspective of the role of emotions and unconscious ways of knowing", link: "https://drive.google.com/file/d/1bO-QZNQBpWDn-z-0boLCNimbnCQRwM-I/view" }    
   ], notes: [
     { id: "tpe-n1", module: 1, title: "Week 1 Presentation", link: "https://docs.google.com/presentation/d/1yNDxNlI9RE-5JKFtpVx5oFsi4a07Aepm/edit" },
     { id: "tpe-n2", module: 1, title: "Week 3 Presentation", link: "https://docs.google.com/presentation/d/1FwTdGEsH8BVr_cmCBJ_IlxHyQvW3mrVS/edit" },
-    { id: "tpe-n3", module: 1, title: "Week 4-5 Presentation", link: "https://docs.google.com/presentation/d/1H2p4Vb3aJGZ7O8yTicqNSIlG6kaIM76E/edit" }
+    { id: "tpe-n3", module: 1, title: "Week 4-5 Presentation", link: "https://docs.google.com/presentation/d/1H2p4Vb3aJGZ7O8yTicqNSIlG6kaIM76E/edit" },
+    { id: "tpe-n4", module: 1, title: "List of Academic Papers for Discussion", link: "https://docs.google.com/spreadsheets/d/1IQ6pBiIIifTz6LG0RerQAzwuWTOQnnh_/edit" }
   ] }
 ];
 const GENERAL = [
