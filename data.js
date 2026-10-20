@@ -21,7 +21,7 @@ readings: [
     ]
   },
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [
-    { id: "fsd-a1", module: 1, title: "Community Engagement 2026", link: "https://drive.google.com/file/d/1e6h_cu_luMan6sABGRYJ0KwEjgI8POsi/view", due: "2026-12-19" },
+    { id: "fsd-a1", module: 1, title: "Community Engagement 2026", link: "https://drive.google.com/file/d/1e6h_cu_luMan6sABGRYJ0KwEjgI8POsi/view", due: "2026-12-19", notify: "all" },
     { id: "fsd-a2", module: 2, title: "Individual Assignment: Environmental Issues in Nepal (2026)", link: "https://drive.google.com/file/d/1hzDeERv8ONANkicXdH33BdIHLaty2yzi/view", due: "2026-10-16", email: "ashish.sinha@kusoed.edu.np", done: true }
   ], readings: [], notes: [
     { id: "fsd-n1", module: 1, title: "Module 0 and 1, Week 1-3 Complete Lectures Slides", link: "https://drive.google.com/file/d/1XrbfI4friEV9r65EVqeO_IyEPUa5U_Dk/view" },
@@ -35,7 +35,7 @@ readings: [
     { id: "gcst-a1", module: 1, title: "Article Reviews", link: "https://kusoede.edu.np/mod/assign/view.php?id=75341", done: true },
     { id: "gcst-a2", module: 2, title: "Certificate/Final Page Snapshot Upload", due: "2026-09-30", time: "17:00", link: "https://kusoede.edu.np/mod/assign/view.php?id=62420", done: true },
     { id: "gcst-a3", module: 2, title: "Mind Map", due: "2026-10-16", time: "22:07", link: "https://kusoede.edu.np/mod/assign/view.php?id=57991", done:true },
-    { id: "gcst-a4", module: 3, title: "Assignment Three: Record a video where you must be visible in the whole frame or side by side with your narration explaining why climate change is just an one tip of coupled changes, how we should act to minimise its negative consequences to humankind. The video must have three to four minutes of narration/video where you should be visible at least for 30 seconds; the rest you can add animations if you wish, but not extending five minutes in total. Share it through Google Drive or a YouTube link in Moodle.", link: "https://kusoede.edu.np/mod/assign/view.php?id=57992", due: "2026-11-16", time: "20:45" }
+    { id: "gcst-a4", module: 3, title: "Assignment Three: Record a video where you must be visible in the whole frame or side by side with your narration explaining why climate change is just an one tip of coupled changes, how we should act to minimise its negative consequences to humankind. The video must have three to four minutes of narration/video where you should be visible at least for 30 seconds; the rest you can add animations if you wish, but not extending five minutes in total. Share it through Google Drive or a YouTube link in Moodle.", link: "https://kusoede.edu.np/mod/assign/view.php?id=57992", due: "2026-11-16", time: "20:45", notify: "all" }
   ],
   readings: [
     { id: "gcst-r1", module: 1, title: "Sustainable Development (1987-2005) - An Oxymoron Comes of Age", link: "https://drive.google.com/file/d/1Zmt_098z7ScZWiXegy0BZetYhoJVlrFE/view" },
@@ -56,7 +56,7 @@ readings: [
 { id: "subj4", name: "EDSD 518: Sociology and Local Cosmology of Sustainable Development", assignments: [
       { id: "soc-a1", module: 1, title: "Assignment 1: Choose a topic of your interests related to human-ecology relations, and write a reflective piece of 500-800 words from the perspective of sustainability.", done: true },
       { id: "soc-a2", module: 2, title: "Write a short reflective note on the relationship between consumerism and ecology, focusing on sustainability and human responsibility.", done: true },
-      { id: "soc-a3", module: 3, title: "Assignment 2: Update Assignment 1 with relevant sociological theories in 500-800 words.", due: "2026-10-28", email: "sujit_phdds2025@kusoed.edu.np" }
+      { id: "soc-a3", module: 3, title: "Assignment 2: Update Assignment 1 with relevant sociological theories in 500-800 words.", due: "2026-10-28", email: "sujit_phdds2025@kusoed.edu.np", notify: "all" }
 ], notes: [],
   readings: [
     { id: "soc-r1", module: 1, title: "Moran, E. F. (2006). People and Nature: An introduction to human ecological relations (pp. 1-23). Blackwell Publishing.", link: "https://drive.google.com/file/d/1PQnQkBL_Wuwl1aRekmNAePffPIhc_PyD/view" },
@@ -79,8 +79,8 @@ readings: [
     { id: "soc-r18", module: 3, title: "Magni, G. (2017). Indigenous knowledge and implications for the sustainable development agenda. European Journal of Education, 52(4), 437-447.", link: "https://drive.google.com/file/d/1rGqcuNgIhM-WKyvn3LQtWjfI_On5kkCL/view" }
   ] },
   { id: "subj5", name: "EDSD 508: Theory and Practice in Education", assignments: [
-    { id: "tpe-a1", module: 1, title: "Paper Review: Creative Learning for Sustainability in a World of AI [Rohit]", link: "https://drive.google.com/file/d/15kUASWSs_fpXASePgA_ngTf2mnU1sE_g/view", due: "2026-10-20" },
-    { id: "tpe-a2", module: 1, title: "Journal 1: Reflective Writing (Part 1 and 2)", link: "https://kusoede.edu.np/mod/assign/view.php?id=43093", due: "2026-10-25" }
+    { id: "tpe-a1", module: 1, title: "Paper Review: Creative Learning for Sustainability in a World of AI [Rohit]", link: "https://drive.google.com/file/d/15kUASWSs_fpXASePgA_ngTf2mnU1sE_g/view", due: "2026-10-27", notify: "me" },
+    { id: "tpe-a2", module: 1, title: "Journal 1: Reflective Writing (Part 1 and 2)", link: "https://kusoede.edu.np/mod/assign/view.php?id=43093", due: "2026-10-25", notify: "all" }
   ], readings: [
     { id: "tpe-r1", module: 1, title: "Dewey, J. (1938). Experience and Education. Kappa Delta Pi.", link: "https://drive.google.com/file/d/12eonJ5Fn4MzYIu2QHdBoElxk9ry9y72N/view" },
     { id: "tpe-r2", module: 1, title: "Freire, P. (1970). Pedagogy of the Oppressed (30th anniversary ed.). Continuum.", link: "https://drive.google.com/file/d/1IXirxggMQSngh7blwSuG5MOFpv4IeVyU/view" },
