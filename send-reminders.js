@@ -9,7 +9,7 @@
 // once someone taps it, that person stops getting reminders for that one item (needs DONE_URL + DONE_SECRET).
 const fs = require("fs"), path = require("path"), vm = require("vm"), crypto = require("crypto");
 
-// ===== Settings that can be changed =====
+// ===== Settings  to change =====
 const TZ = "Asia/Kathmandu";       // time zone used to decide what "today" is
 const REMIND_DAYS = [7, 2, 0];     // days before the deadline to send a reminder
 const SITE_URL = "https://neotahiro.github.io/assignment-hub/";
