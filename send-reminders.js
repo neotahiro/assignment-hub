@@ -2,14 +2,14 @@
 // Reads data.js, so your deadlines only ever live in one place.
 //
 // Who gets what:
-//   - Items inside a course            -> everyone by default.  Add  notify: "me"  to send only to you.
-//   - Items in the GENERAL list        -> only you by default.  Add  notify: "all" to send to everyone.
+//   - Items inside a course            -> everyone by default.  Add  notify: "me"  to send only to me.
+//   - Items in the GENERAL list        -> only me by default.  Add  notify: "all" to send to everyone.
 //   - Any value other than "all"       -> treated as "me" (a typo can never email the class by mistake).
 // Items marked done in data.js are never sent. Each email also has an "Already submitted" button;
 // once someone taps it, that person stops getting reminders for that one item (needs DONE_URL + DONE_SECRET).
 const fs = require("fs"), path = require("path"), vm = require("vm"), crypto = require("crypto");
 
-// ===== Settings you may want to change =====
+// ===== Settings that can be changed =====
 const TZ = "Asia/Kathmandu";       // time zone used to decide what "today" is
 const REMIND_DAYS = [7, 2, 0];     // days before the deadline to send a reminder
 const SITE_URL = "https://neotahiro.github.io/assignment-hub/";
