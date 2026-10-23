@@ -23,7 +23,7 @@ readings: [
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [
     { id: "fsd-a1", module: 1, title: "Community Engagement 2026", link: "https://drive.google.com/file/d/1e6h_cu_luMan6sABGRYJ0KwEjgI8POsi/view", due: "2026-12-19", notify: "all" },
     { id: "fsd-a2", module: 2, title: "Individual Assignment: Environmental Issues in Nepal (2026)", link: "https://drive.google.com/file/d/1hzDeERv8ONANkicXdH33BdIHLaty2yzi/view", due: "2026-10-16", email: "ashish.sinha@kusoed.edu.np", done: true },
-    { id: "fsd-a3", module: 1, title: "THIS IS A TEST. I'M WORKING ON SOMETHING. PLEASE IGNORE.", due: "2026-10-24", notify: "me" }    
+    { id: "fsd-a3", module: 1, title: "THIS IS A TEST. I'M WORKING ON SOMETHING. PLEASE IGNORE.", due: "2026-10-24" }    
   ], readings: [], notes: [
     { id: "fsd-n1", module: 1, title: "Module 0 and 1, Week 1-3 Complete Lectures Slides", link: "https://drive.google.com/file/d/1XrbfI4friEV9r65EVqeO_IyEPUa5U_Dk/view" },
     { id: "fsd-n2", module: 2, title: "Module 2, Week 4 Three Pillars", link: "https://drive.google.com/file/d/1bhnHLn1yc_vUEoe1RaRy_srAcRAuYTfH/view" },
