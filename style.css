@@ -39,3 +39,14 @@ a.t{text-decoration:none}a.t:hover{text-decoration:underline}
 .sem a:hover{color:var(--ink);border-color:var(--acc)}
 .mail{font-size:.75rem;font-weight:600;margin-left:.5rem;padding:.05rem .5rem;border:1px solid var(--line);border-radius:999px;color:var(--acc);text-decoration:none;white-space:nowrap;vertical-align:middle;background:var(--card)}
 .mail:hover{border-color:var(--acc)}
+.notices{margin-bottom:1.5rem}
+.notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;padding:.7rem 1rem;margin-bottom:.55rem}
+.notice.urgent{border-left-color:var(--bad);background:color-mix(in srgb,var(--bad) 7%,var(--card))}
+.notice.old{opacity:.6}.nt{font-weight:700}.ntx{white-space:pre-line;margin:.3rem 0}
+.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.more{font-size:.9rem}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:50}
+.pop{background:var(--card);border-radius:12px;padding:1rem;max-width:440px;width:100%}
+.pop .notice{border:0;padding:.2rem;margin:0}
+.bar{height:5px;background:var(--line);border-radius:3px;margin:.8rem 0;overflow:hidden}.bar i{display:block;height:100%;width:100%;background:var(--bad)}
+.btn{font:inherit;font-weight:600;padding:.4rem 1rem;border-radius:8px;border:1px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer}
