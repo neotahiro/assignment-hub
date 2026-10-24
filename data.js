@@ -103,4 +103,8 @@ const GENERAL = [
   { id: "gen-a1", title: "Writing Task. URGENT! Tuesday Deadline.", due: "2026-10-06" },
   { id: "gen-a1", title: "Exam Registration Form Submission. Deadline today.", due: "2026-10-07" }
 ];
+const NOTICES = [
+  { id: "n1", date: "2026-10-24", title: "Regular online class resumes", text: "Regular online class resumes from Monday, October 26.", on: "2026-11-26" },
+  { id: "n2", date: "2026-10-24", title: "Physical classes: Nov 2-6", text: "Physical classes will be held from Monday, Nov 2 to Friday, Nov 6.\nMorning: 10:00 am - 1:00 pm\nBreak: 1:00 pm - 2:00 pm\nAfternoon: 2:00 pm - 5:00 pm", on: "2026-11-02", until: "2026-11-06", link: "https://docs.google.com/spreadsheets/d/1lpna55Rg1-6tZwBVWp2kPe2XmCbUMivl9lOVRScZshE/edit" }
+];
 const MODULE_COUNT = 5;
