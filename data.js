@@ -56,7 +56,8 @@ readings: [
 { id: "subj4", name: "EDSD 518: Sociology and Local Cosmology of Sustainable Development", assignments: [
       { id: "soc-a1", module: 1, title: "Assignment 1: Choose a topic of your interests related to human-ecology relations, and write a reflective piece of 500-800 words from the perspective of sustainability.", done: true },
       { id: "soc-a2", module: 2, title: "Write a short reflective note on the relationship between consumerism and ecology, focusing on sustainability and human responsibility.", done: true },
-      { id: "soc-a3", module: 3, title: "Assignment 2: Update Assignment 1 with relevant sociological theories in 500-800 words.", due: "2026-10-28", email: "sujit_phdds2025@kusoed.edu.np", notify: "all" }
+      { id: "soc-a3", module: 3, title: "Assignment 2: Update Assignment 1 with relevant sociological theories in 500-800 words.", due: "2026-10-28", email: "sujit_phdds2025@kusoed.edu.np", notify: "all" },
+      { id: "soc-a4", module: 3, title: "Individual Class Presentation: Anurag Kafle, Asmita PArajuli, Reeya Pradhan", due: "2026-10-29", notify: "all" },
 ], notes: [],
   readings: [
     { id: "soc-r1", module: 1, title: "Moran, E. F. (2006). People and Nature: An introduction to human ecological relations (pp. 1-23). Blackwell Publishing.", link: "https://drive.google.com/file/d/1PQnQkBL_Wuwl1aRekmNAePffPIhc_PyD/view" },
