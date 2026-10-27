@@ -104,7 +104,7 @@ const GENERAL = [
   { id: "gen-a1", title: "Exam Registration Form Submission. Deadline today.", due: "2026-10-07" }
 ];
 const NOTICES = [
-  { id: "n1", date: "2026-10-24", title: "Regular online class resumes", text: "Regular online class resumes from Monday, October 26.", on: "2026-10-26" },
+  { id: "n1", date: "2026-10-24", title: "Regular online class resumes", text: "Regular online class resumes from Tuesday, October 27.", on: "2026-10-26" },
   { id: "n2", date: "2026-10-24", title: "Physical classes: Nov 2-6", text: "Physical classes will be held from Monday, Nov 2 to Friday, Nov 6.\nSession 1: 10:00 am - 12:30 pm\nBreak: 12:30 pm - 1:30 pm\nSession 2: 1:30 pm - 4:00 pm", on: "2026-11-02", until: "2026-11-06", link: "https://docs.google.com/spreadsheets/d/1fGV9O6pGidDKvVu4W3HHls-7v8XAxobK/edit" }
 ];
 const MODULE_COUNT = 5;
