@@ -23,7 +23,19 @@ readings: [
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [
     { id: "fsd-a1", module: 1, title: "Community Engagement 2026", link: "https://drive.google.com/file/d/1e6h_cu_luMan6sABGRYJ0KwEjgI8POsi/view", due: "2026-12-19", notify: "all" },
     { id: "fsd-a2", module: 2, title: "Individual Assignment: Environmental Issues in Nepal (2026)", link: "https://drive.google.com/file/d/1hzDeERv8ONANkicXdH33BdIHLaty2yzi/view", due: "2026-10-16", email: "ashish.sinha@kusoed.edu.np", done: true }
-  ], readings: [], notes: [
+  ], readings: [
+    { id: "fsd-r1", module: 3, title: "Dile, E. (2017). Green metrics: Common measures for sustainable economic development. International Economic Development Council." },
+    { id: "fsd-r2", module: 3, title: "European Union. (2020). Social sustainability – Concepts and benchmarks (pp. 18–39).", link: "https://www.europarl.europa.eu/RegData/etudes/STUD/2020/648782/IPOL_STU(2020)648782_EN.pdf" },
+    { id: "fsd-r3", module: 3, title: "National Planning Commission. (2017). Nepal sustainable development goals: Status and roadmap 2016–2030." },
+    { id: "fsd-r4", module: 3, title: "Purvis, B., Mao, Y., & Robinson, D. (2018). Three pillars of sustainability: In search of conceptual origins. Sustainability Science.", link: "https://eprints.whiterose.ac.uk/136715/7/Purvis2018_Article_ThreePillarsOfSustainabilityIn.pdf" },
+    { id: "fsd-r5", module: 3, title: "Short reports to browse. (n.d.). Nepal Economic Forum.", link: "Short reports to browse. (n.d.). Nepal Economic Forum." },
+    { id: "fsd-r6", module: 3, title: "Solin, J. (n.d.). Principles for economic sustainability: Summary." },
+    { id: "fsd-r7", module: 3, title: "Sutton, P. (2004). A perspective on environmental sustainability? A paper for the Victorian Commissioner for Environmental Sustainability.", link: "https://www.donboscogozo.org/images/pdfs/energy/A-Perspective-on-Environmental-Sustainability.pdf" },
+    { id: "fsd-r8", module: 3, title: "Widok, A. (2009). Social sustainability: Theories, concepts, practicability (pp. 43–50). Shaker Verlag." },
+    { id: "fsd-r9", module: 3, title: "World Bank. (2021). The fiscal policy for sustainable development Nepal (Executive summary and Chapter 4, pp. 53–64)." },
+    { id: "fsd-r10", module: 3, title: "Younis, F., & Chaudhary, M. A. (2017). Sustainable development: Economic, social, and environmental sustainability in Asian economies. Munich Personal RePEc Archive, 98–108." },
+    { id: "fsd-r11", module: 3, title: "3 Ps of Sustainability. (n.d.). [Video]. YouTube.", link: "https://youtu.be/vNNo_fSISyI?si=wddSOG-u_XfSv_4O" }   
+  ], notes: [
     { id: "fsd-n1", module: 1, title: "Module 0 and 1, Week 1-3 Complete Lectures Slides", link: "https://drive.google.com/file/d/1XrbfI4friEV9r65EVqeO_IyEPUa5U_Dk/view" },
     { id: "fsd-n2", module: 2, title: "Module 2, Week 4 Three Pillars", link: "https://drive.google.com/file/d/1bhnHLn1yc_vUEoe1RaRy_srAcRAuYTfH/view" },
     { id: "fsd-n3", module: 2, title: "Module 2, Week 5 Environmental Sustainability", link: "https://drive.google.com/file/d/1c5Jkr2F13cmxUFH0DlrEOhfEKZf0MERs/view" },
