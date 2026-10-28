@@ -22,7 +22,8 @@ readings: [
   },
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [
     { id: "fsd-a1", module: 1, title: "Community Engagement 2026", link: "https://drive.google.com/file/d/1e6h_cu_luMan6sABGRYJ0KwEjgI8POsi/view", due: "2026-12-19", notify: "all" },
-    { id: "fsd-a2", module: 2, title: "Individual Assignment: Environmental Issues in Nepal (2026)", link: "https://drive.google.com/file/d/1hzDeERv8ONANkicXdH33BdIHLaty2yzi/view", due: "2026-10-16", email: "ashish.sinha@kusoed.edu.np", done: true }
+    { id: "fsd-a2", module: 2, title: "Individual Assignment: Environmental Issues in Nepal (2026)", link: "https://drive.google.com/file/d/1hzDeERv8ONANkicXdH33BdIHLaty2yzi/view", due: "2026-10-16", email: "ashish.sinha@kusoed.edu.np", done: true },
+    { id: "fsd-a3", module: 2, title: "Group Assignment: Measure ‘Social Sustainability’ Among Marginalized Communities of Nepal, Under Social Inclusion, Cohesion, Resiliency Indicators\nPresentation in next class. Click here for more details.", link: "https://drive.google.com/file/d/1rNUS_tvz2_rOBH8TZELM0c14NadQl4K9/view", due: "2026-11-03", time: "17:30", notify: "all" }
   ], readings: [
     { id: "fsd-r1", module: 2, title: "Bista, D. B. (1991). Fatalism and development: Nepal's struggle for modernization. Orient Blackswan." },
     { id: "fsd-r2", module: 2, title: "Harris, J. (2000). Basic principles of sustainable development (Global Development and Environment Institute Working Paper 00-04). Global Development and Environment Institute." },
