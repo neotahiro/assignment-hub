@@ -1,6 +1,6 @@
-// ===== EDIT THIS FILE to add your coursework, then commit & push. =====
+// ===== EDIT THIS FILE to add coursework, then commit & push. =====
 // Dates: "YYYY-MM-DD". Every item needs a unique id (used to remember "done").
-// module: 1-9. Leave arrays empty if nothing yet.
+// module: 1-5. Leave arrays empty if nothing yet.
 const SUBJECTS = [
   {
     id: "pol101", name: "EDSD 510: Ecology and Environment",
@@ -78,7 +78,7 @@ readings: [
 { id: "subj4", name: "EDSD 518: Sociology and Local Cosmology of Sustainable Development", assignments: [
       { id: "soc-a1", module: 1, title: "Assignment 1: Choose a topic of your interests related to human-ecology relations, and write a reflective piece of 500-800 words from the perspective of sustainability.", done: true },
       { id: "soc-a2", module: 2, title: "Write a short reflective note on the relationship between consumerism and ecology, focusing on sustainability and human responsibility.", done: true },
-      { id: "soc-a3", module: 3, title: "Assignment 2: Update Assignment 1 with relevant sociological theories in 500-800 words. | For those who asked for an extension.", due: "2026-11-01", email: "sujit_phdds2025@kusoed.edu.np", notify: "all" },
+      { id: "soc-a3", module: 3, title: "Assignment 2: Update Assignment 1 with relevant sociological theories in 500-800 words. | For those who asked for an extension.", due: "2026-11-01", email: "sujit_phdds2025@kusoed.edu.np", notify: "all", done: true },
       { id: "soc-a4", module: 3, title: "Individual Presentation: Anurag Kafle, Asmita Parajuli, Reeya Pradhan", due: "2026-10-29", notify: "all", done: true }
 ], notes: [],
   readings: [
