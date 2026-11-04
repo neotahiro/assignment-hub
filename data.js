@@ -65,7 +65,9 @@ readings: [
     { id: "gcst-r2", module: 1, title: "Conception of time, socioeconomic development and cultural values by Hamid Yeganeh", link: "https://drive.google.com/file/d/1moSm7MmNIxu50XcTLS7_CMvPl1RXwHMx/view" },
     { id: "gcst-r3", module: 1, title: "Observed trends in Earth System behavior by WIll Steffen", link: "https://drive.google.com/file/d/1A1L__4GEhANJH9MyT5EVCfIap0kOXgnm/view" },
     { id: "gcst-r4", module: 2, title: "The Impacts of Climate Change by Trevor M. Letcher, Chapter 21 (pg. 491-499)", link: "https://drive.google.com/file/d/1vnGAH4kvY-da2qiB979t7ayhFILU5Gbs/view" },
-    { id: "gcst-r5", module: 3, title: "The Age of Sustainable Development by Jefferey Sachs, Chapter 12: Climate Change (pg. 393-440)", link: "https://drive.google.com/file/d/1IgJt-QgQzjzkb-r3iKpLccWArC9s1bAM/view?usp=drive_link" }
+    { id: "gcst-r5", module: 3, title: "The Age of Sustainable Development by Jefferey Sachs, Chapter 12: Climate Change (pg. 393-440)", link: "https://drive.google.com/file/d/1IgJt-QgQzjzkb-r3iKpLccWArC9s1bAM/view?usp=drive_link" },
+    { id: "gcst-r6", module: 5, title: "Discover QGIS 3.x by Kurt Menke (2nd edition) (Locate Press) (pg. 15-95)", link: "https://drive.google.com/file/d/1l7POhphFiuYeBXVctm00vfIz9Gyrj1Fp/view" },
+    { id: "gcst-r6", module: 4, title: "Unit: 1 - Introduction to Sustainable Development (pages 1-42); Unit 14 - Sustainable Development Goals (pages 481-505), from The Age of Sustainable Development, Jeffrey D Sachs, 2015", link: "https://drive.google.com/file/d/1IgJt-QgQzjzkb-r3iKpLccWArC9s1bAM/view" }    
   ],
   notes: [
    { id: "gcst-n1", module: 1, title: "Course Outline", link: "https://drive.google.com/file/d/1Zmt_098z7ScZWiXegy0BZetYhoJVlrFE/view" },
