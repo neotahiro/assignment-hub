@@ -6,7 +6,8 @@ const SUBJECTS = [
     id: "pol101", name: "EDSD 510: Ecology and Environment",
     assignments: [
       { id: "pol-a1", module: 1, title: "The Scholars Who Paved The Way Further: Write down in 1 or 2 sentences about the contribution of environment/conservation scholars listed in the presentation slides in today's session.", link: "https://kusoede.edu.np/mod/assign/view.php?id=93562", done: true },
-      { id: "pol-a2", module: 1, title: "Write down a 600-800 words reflection report on how understanding the basics of ecology including population ecology (structure, dynamics), community ecology (structure, dynamics), ecological relationships/interactions and interdependence and anthropogenic determinants of ecological imbalance have applied relevance to sustainable development. Shape your write-up based on the discussions in the class.", link: "https://kusoede.edu.np/mod/assign/view.php?id=96402", done: true }
+      { id: "pol-a2", module: 1, title: "Write down a 600-800 words reflection report on how understanding the basics of ecology including population ecology (structure, dynamics), community ecology (structure, dynamics), ecological relationships/interactions and interdependence and anthropogenic determinants of ecological imbalance have applied relevance to sustainable development. Shape your write-up based on the discussions in the class.", link: "https://kusoede.edu.np/mod/assign/view.php?id=96402", done: true },
+      { id: "pol-a3", module: 1, title: "Assignment 2: Select a local ecosystem (e.g., a river, forest patch, wetland, or agricultural landscape) and identify its producers, consumers, and decomposers (around 50 words). Write around 250 words analysis of the ecosystem services it provides (categorizing them in all four categories) including their significance for the surrounding community. Now choose any real development project or policy (e.g., a dam, a highway, an agricultural expansion, an urban plan (hospital, airport, shopping complex, school)) happened or happening there. Analyze it (within 500 words) through an ecosystem services lens: - Which ecosystem services are affected? - How were they (or weren't they) valued? - Who are the winners and losers? - Propose an alternative decision-making process that better accounts for ecosystem services and justice.", due: "2026-11-29", time: "23:59", link: "https://kusoede.edu.np/mod/assign/view.php?id=99413" } 
     ],
 readings: [
       { id: "pol-r1", module: 1, title: "Principles of Environmental Science - Inquiry and Applications by William P. Cunningham, Mary Ann Cunningham, Catherine M. OReilly (10th edition)", link: "https://drive.google.com/file/d/1zMizpSzkb7RxLHBkmfuA2pQr2Lg3mKT9/view" },
@@ -17,7 +18,8 @@ readings: [
       { id: "pol-n2", module: 1, title: "Module 1.1 Basic Concept of Ecology", link: "https://drive.google.com/file/d/1pBsIo5IwGRIPMFM1o9KTW3hfZp4HLam1/view" },
       { id: "pol-n3", module: 1, title: "Module 1.2 Community Ecology", link: "https://drive.google.com/file/d/1W1fGDrDZaAS7ezNGdE99yzRWrFEkK1K_/view" },
       { id: "pol-n4", module: 1, title: "Module 1.3 Ecological Interactions", link: "https://drive.google.com/file/d/1m_DzABMLI4y7RaQj5thlvieKa1urFMNm/view" },
-      { id: "pol-n5", module: 1, title: "Module 1.4 Ecological Balance and Determinants", link: "https://drive.google.com/file/d/1cPo61u9jKtT_NT7n4HtogRThqD83aF40/view" }     
+      { id: "pol-n5", module: 1, title: "Module 1.4 Ecological Balance and Determinants", link: "https://drive.google.com/file/d/1cPo61u9jKtT_NT7n4HtogRThqD83aF40/view" },
+      { id: "pol-n6", module: 2, title: "Module 2.3 Ecosystem Services", link: "https://drive.google.com/file/d/1ZmG5jFZoGiaakE1Rhfh5upD9QCjAXwX4/view" }      
     ]
   },
   { id: "subj2", name: "EDSD 512: Fundamentals of Sustainable Development", assignments: [
