@@ -2,7 +2,8 @@ name: Deadline reminders
 
 on:
   schedule:
-    - cron: "30 0 * * *"   # 00:30 UTC = about 6:15 AM in Nepal. GitHub may start a few minutes late.
+    - cron: "55 6 * * *"   # GitHub may start a few minutes late.
+      timezone: "Asia/Kathmandu"  # 6:55 AM Nepal time
   workflow_dispatch:
     inputs:
       dry_run:
