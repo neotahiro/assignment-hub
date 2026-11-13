@@ -174,7 +174,8 @@ function route() {
   if (ms) { const sj = SUBJECTS.find(x => x.id === ms[1]); if (sj) sem = semOf(sj); }
   else if (mm && Number(mm[1]) !== cur && hasSubjects(Number(mm[1]))) sem = Number(mm[1]);
   viewSem = sem;
-  $nav.innerHTML = subjectsOf(sem).map(s => `<a href="#/subject/${s.id}" class="${ms && ms[1] === s.id ? "on" : ""}">${esc(s.name)}</a>`).join("") + `<a href="#/notices" class="${h === "notices" ? "on" : ""}">Notices</a>`;
+  $nav.innerHTML = subjectsOf(sem).map(s => `<a href="#/subject/${s.id}" class="${ms && ms[1] === s.id ? "on" : ""}">${esc(s.name)}</a>`).join("") + `<a href="#/notices" class="${h === "notices" ? "on" : ""}">Notices</a>`
+    + (typeof PICTURES_URL !== "undefined" && PICTURES_URL ? `<a href="${esc(PICTURES_URL)}" data-kind="pictures" data-title="Pictures" target="_blank" rel="noopener">Pictures ↗</a>` : "");
   const isN = h === "notices";
   ms ? subjectPage(ms[1]) : isN ? noticesPage() : sem !== cur ? semesterPage(sem) : dashboard();
   const subj = ms && SUBJECTS.find(x => x.id === ms[1]);
