@@ -136,4 +136,4 @@ const NOTICES = [
   { id: "n2", date: "2026-10-24", title: "Physical classes: Nov 2-6", text: "Physical classes will be held from Monday, Nov 2 to Friday, Nov 6.\nSession 1: 10:00 am - 12:30 pm\nBreak: 12:30 pm - 1:30 pm\nSession 2: 1:30 pm - 4:00 pm", on: "2026-11-02", until: "2026-11-06", link: "https://docs.google.com/spreadsheets/d/1fGV9O6pGidDKvVu4W3HHls-7v8XAxobK/edit" }
 ];
 const MODULE_COUNT = 5;
-const PICTURES_URL = "https://script.google.com/a/macros/kusoed.edu.np/s/AKfycbzTNuqos4r84-SrKKseMuhEzZkR17a8pJKb_FHBx9NfUQ64JCJegdOlf4uQ9Ue8yIve/exec";
+const PICTURES_URL = "https://script.google.com/a/macros/kusoed.edu.np/s/AKfycbxAzUqDOlgBXdRLfNalIssCQhr0Q6soTQscevTxD02g_NChq6ZUuljnCRrRvbskxzPi/exec";
