@@ -124,7 +124,8 @@ readings: [
     { id: "tpe-n1", module: 1, title: "Week 1 Presentation", link: "https://docs.google.com/presentation/d/1yNDxNlI9RE-5JKFtpVx5oFsi4a07Aepm/edit" },
     { id: "tpe-n2", module: 1, title: "Week 3 Presentation", link: "https://docs.google.com/presentation/d/1FwTdGEsH8BVr_cmCBJ_IlxHyQvW3mrVS/edit" },
     { id: "tpe-n3", module: 1, title: "Week 4-5 Presentation", link: "https://docs.google.com/presentation/d/1H2p4Vb3aJGZ7O8yTicqNSIlG6kaIM76E/edit" },
-    { id: "tpe-n4", module: 1, title: "List of Academic Papers for Discussion", link: "https://docs.google.com/spreadsheets/d/1IQ6pBiIIifTz6LG0RerQAzwuWTOQnnh_/edit" }
+    { id: "tpe-n4", module: 1, title: "List of Academic Papers for Discussion", link: "https://docs.google.com/spreadsheets/d/1IQ6pBiIIifTz6LG0RerQAzwuWTOQnnh_/edit" },
+    { id: "tpe-n5", module: 1, title: "Week 10 - ESD Lens Review Tool (Mapping Issues)", link: "https://docs.google.com/spreadsheets/d/1kdBB4poENQvlc2z3XGYnvfIFx96vPkeU/edit" }    
   ] }
 ];
 const GENERAL = [
