@@ -72,7 +72,7 @@ readings: [
     { id: "gcst-r6", module: 4, title: "Unit: 1 - Introduction to Sustainable Development (pages 1-42); Unit 14 - Sustainable Development Goals (pages 481-505), from The Age of Sustainable Development, Jeffrey D Sachs, 2015", link: "https://drive.google.com/file/d/1IgJt-QgQzjzkb-r3iKpLccWArC9s1bAM/view" }    
   ],
   notes: [
-   { id: "gcst-n1", module: 1, title: "Course Outline", link: "https://drive.google.com/file/d/1Zmt_098z7ScZWiXegy0BZetYhoJVlrFE/view" },
+    { id: "gcst-n1", module: 1, title: "Course Outline", link: "https://drive.google.com/file/d/1Zmt_098z7ScZWiXegy0BZetYhoJVlrFE/view" },
     { id: "gcst-n2", module: 1, title: "Lecture 1: Introduction", link: "https://docs.google.com/presentation/d/1G8k5T0TIETgO6Ckt09mLjx_xp3_yQu-o/edit?usp=drive_link&ouid=118012022294365404947&rtpof=true&sd=true" },
     { id: "gcst-n3", module: 1, title: "Lecture 2: Global Change, Natural System and Changes", link: "https://drive.google.com/file/d/1O22jSrk9sIkH2dyzajZiBIhkfJbpMeI9/view" },
     { id: "gcst-n4", module: 1, title: "Lecture 2: Global Change, Natural System and Changes (contd...)", link: "https://drive.google.com/file/d/1cvckCsOo-VMoVNzbsfN5nD0lV44qNLID/view" },
@@ -87,7 +87,10 @@ readings: [
       { id: "soc-a4", module: 3, title: "Individual Presentation: Anurag Kafle, Asmita Parajuli, Reeya Pradhan", due: "2026-10-29", notify: "all", done: true },
       { id: "soc-a5", module: 3, title: "Individual Presentation: Anshu Pandey, Bibek Acharya", due: "2026-11-19", notify: "all", done: true },
       { id: "soc-a6", module: 3, title: "Assignment 3: Write at least 500 words on how local cosmology and wisdom tradition deepen our understanding of environmental sustainability. Use this reflection to update Assignment 2. | Send via email", due: "2026-11-25", time: "15:00", email: "sujit_phdds2025@kusoed.edu.np", notify: "all"}
-], notes: [],
+], notes: [
+      { id: "soc-n1", module: 2, title: "Symbolic Interactionism", link: "https://docs.google.com/presentation/d/1DC8uugo1vI2Mg02Ry3icznllOvoA4B-K/edit" },
+      { id: "soc-n2", module: 2, title: "Weber Sociological Thinking", link: "https://docs.google.com/presentation/d/1R71jjDUvF2zcivdGJxkif8lRlRR24fV2/edit" }
+],
   readings: [
     { id: "soc-r1", module: 1, title: "Moran, E. F. (2006). People and Nature: An introduction to human ecological relations (pp. 1-23). Blackwell Publishing.", link: "https://drive.google.com/file/d/1PQnQkBL_Wuwl1aRekmNAePffPIhc_PyD/view" },
     { id: "soc-r2", module: 1, title: "Seghezzo, L. (2009). The Five Dimensions of Sustainability. Environmental Politics, 18(4), 539-556.", link: "https://drive.google.com/file/d/1RT_dLWCxwfPTvGthlJsGqKSttr9sPPzb/view" },
