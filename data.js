@@ -86,7 +86,8 @@ readings: [
       { id: "soc-a3", module: 2, title: "Assignment 2: Update Assignment 1 with relevant sociological theories in 500-800 words. | For those who asked for an extension.", due: "2026-11-01", email: "sujit_phdds2025@kusoed.edu.np", notify: "all", done: true },
       { id: "soc-a4", module: 3, title: "Individual Presentation: Anurag Kafle, Asmita Parajuli, Reeya Pradhan", due: "2026-10-29", notify: "all", done: true },
       { id: "soc-a5", module: 3, title: "Individual Presentation: Anshu Pandey, Bibek Acharya", due: "2026-11-19", notify: "all", done: true },
-      { id: "soc-a6", module: 3, title: "Assignment 3: Write at least 500 words on how local cosmology and wisdom tradition deepen our understanding of environmental sustainability. Use this reflection to update Assignment 2. | Send via email", due: "2026-11-25", time: "15:00", email: "sujit_phdds2025@kusoed.edu.np", notify: "all"}
+      { id: "soc-a6", module: 3, title: "Assignment 3: Write at least 500 words on how local cosmology and wisdom tradition deepen our understanding of environmental sustainability. Use this reflection to update Assignment 2. | Send via email", due: "2026-11-25", time: "15:00", email: "sujit_phdds2025@kusoed.edu.np", notify: "all"},
+      { id: "soc-a7", module: 4, title: "Reading Work for next class: WHAT ARE SOCIAL MOVEMENTS? (page 4-5 from the book in this link)", link: "https://drive.google.com/file/d/11k4vKHAzSs-EUxkZot-HVrab8fBG241p/view", due: "2026-11-26", notify: "all",}
 ], notes: [
       { id: "soc-n1", module: 2, title: "Symbolic Interactionism", link: "https://docs.google.com/presentation/d/1DC8uugo1vI2Mg02Ry3icznllOvoA4B-K/edit" },
       { id: "soc-n2", module: 2, title: "Weber Sociological Thinking", link: "https://docs.google.com/presentation/d/1R71jjDUvF2zcivdGJxkif8lRlRR24fV2/edit" }
