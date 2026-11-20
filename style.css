@@ -50,3 +50,11 @@ a.t{text-decoration:none}a.t:hover{text-decoration:underline}
 .pop .notice{border:0;padding:.2rem;margin:0}
 .bar{height:5px;background:var(--line);border-radius:3px;margin:.8rem 0;overflow:hidden}.bar i{display:block;height:100%;width:100%;background:var(--bad)}
 .btn{font:inherit;font-weight:600;padding:.4rem 1rem;border-radius:8px;border:1px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer}
+
+/* Student area */
+.st-tabs{display:flex;gap:.25rem;flex-wrap:wrap;margin:0 0 1.5rem}
+.st-tabs a{padding:.3rem .7rem;border-radius:6px;text-decoration:none;color:var(--mute);font-size:.9rem;border:1px solid var(--line);background:var(--card)}
+.st-tabs a.on{color:var(--ink);border-color:var(--acc)}
+.st-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1rem;margin-bottom:1rem}
+.st-btn{font:inherit;font-weight:600;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:.6rem 1.1rem;cursor:pointer}
+.st-btn.st-quiet{background:var(--card);color:var(--mute);border:1px solid var(--line)}
