@@ -1,29 +1,40 @@
 // Student pages. Assignment data comes from data.js; the student's own state comes from Supabase (db.js).
 
 // ---------- My Assignments ----------
-StudentPages.assignments = async (body, stale) => {
+// Filters: To do (not started) | Active (in progress) | Done | Overdue (not done, past due) | All.
+// Deep link: #/app/assignments/<filter>, used by the dashboard boxes.
+const ST_FILTERS = [["todo", "To do"], ["active", "Active"], ["done", "Done"], ["overdue", "Overdue"], ["all", "All"]];
+const ST_EMPTY = { todo: "Nothing left in To do.", active: "Nothing in progress right now.", done: "Nothing marked done yet.", overdue: "Nothing overdue. Nice.", all: "No assignments here." };
+
+StudentPages.assignments = async (body, stale, sub) => {
   const prog = await Store.progress.all(); if (stale()) return;
   const all = studentItems(), cur = currentSem();
   const sems = SEMS.filter(x => hasSubjects(x.id) && x.start <= isoToday());
-  let sem = cur, filter = "active";
-  const FILTERS = [["active", "Active"], ["done", "Done"], ["all", "All"]];
-  body.innerHTML = `<div class="st-bar-row"><div class="st-filters">${FILTERS.map(([k, l]) => `<button type="button" class="st-pill${k === filter ? " on" : ""}" data-filter="${k}">${l}</button>`).join("")}</div>`
+  let sem = cur, filter = ST_FILTERS.some(f => f[0] === sub) ? sub : "all";
+  const match = {
+    todo: it => stStatus(prog, it.id) === "todo",
+    active: it => stStatus(prog, it.id) === "doing",
+    done: it => stStatus(prog, it.id) === "done",
+    overdue: it => stOverdue(it, prog),
+    all: () => true
+  };
+  body.innerHTML = `<div class="st-bar-row"><div class="st-filters" id="st-pills"></div>`
     + (sems.length > 1 ? `<select class="st-sel" id="st-sem" aria-label="Semester">${sems.map(x => `<option value="${x.id}"${x.id === cur ? " selected" : ""}>${esc(x.name)}</option>`).join("")}</select>` : "")
     + `</div><div class="st-msg" role="status" aria-live="polite"></div><div id="st-list"></div>`;
-  const list = body.querySelector("#st-list");
+  const list = body.querySelector("#st-list"), pills = body.querySelector("#st-pills");
   const draw = () => {
-    let items = all.filter(it => it.sem === sem);
-    if (filter === "active") items = items.filter(it => stStatus(prog, it.id) !== "done");
-    if (filter === "done") items = items.filter(it => stStatus(prog, it.id) === "done");
-    items.sort((a, b) => dueAt(a) - dueAt(b));
-    list.innerHTML = items.map(it => stRow(it, prog)).join("")
-      || `<p class="empty">${filter === "done" ? "Nothing marked done yet." : filter === "active" ? "All caught up. Nothing left to do." : "No assignments here."}</p>`;
+    const pool = all.filter(it => it.sem === sem);
+    pills.innerHTML = ST_FILTERS.map(([k, l]) => `<button type="button" class="st-pill${k === filter ? " on" : ""}" data-filter="${k}" aria-pressed="${k === filter}">${l}<span class="st-n">${pool.filter(match[k]).length}</span></button>`).join("");
+    const isDone = it => stStatus(prog, it.id) === "done" ? 1 : 0;
+    const items = pool.filter(match[filter]).sort((a, b) => (filter === "all" ? isDone(a) - isDone(b) : 0) || dueAt(a) - dueAt(b));
+    list.innerHTML = items.map(it => stRow(it, prog)).join("") || `<p class="empty">${ST_EMPTY[filter]}</p>`;
   };
   body.addEventListener("click", e => {
     const b = e.target.closest && e.target.closest("[data-filter]"); if (!b) return;
     filter = b.dataset.filter;
-    body.querySelectorAll(".st-pill").forEach(x => x.classList.toggle("on", x === b));
+    try { history.replaceState(null, "", "#/app/assignments/" + filter); } catch (err) {}   // keeps the link shareable without re-loading the page
     draw();
+    const nb = body.querySelector(`[data-filter="${filter}"]`); if (nb) nb.focus();
   });
   const semSel = body.querySelector("#st-sem");
   if (semSel) semSel.addEventListener("change", () => { sem = Number(semSel.value); draw(); });
@@ -53,20 +64,19 @@ StudentPages.dashboard = async (body, stale) => {
   const [prog, notes] = await Promise.all([Store.progress.all(), Store.notes.list()]); if (stale()) return;
   const cur = currentSem(), p = Auth.profile() || {};
   const items = studentItems().filter(it => it.sem === cur);
-  const asg = items.filter(it => it.kind === "assignment");
-  const count = s => asg.filter(it => stStatus(prog, it.id) === s).length;
+  const count = s => items.filter(it => stStatus(prog, it.id) === s).length;   // same set the My Assignments page lists
   const done = count("done"), doing = count("doing"), todo = count("todo");
-  const overdue = asg.filter(it => stOverdue(it, prog)).length;
-  const pct = asg.length ? Math.round(done / asg.length * 100) : 0;
+  const overdue = items.filter(it => stOverdue(it, prog)).length;
+  const pct = items.length ? Math.round(done / items.length * 100) : 0;
   const attention = items.filter(it => stStatus(prog, it.id) !== "done" && it.due && daysLeft(it.due) <= 7).sort((a, b) => dueAt(a) - dueAt(b));
   const high = items.filter(it => stPrio(prog, it.id) === 3 && stStatus(prog, it.id) !== "done").sort((a, b) => dueAt(a) - dueAt(b));
-  const stat = (n, l, cls = "") => `<div class="st-stat ${cls}"><b>${n}</b><span>${l}</span></div>`;
+  const stat = (n, l, f, cls = "") => `<a class="st-stat ${cls}" href="#/app/assignments/${f}" title="See these in My Assignments"><b>${n}</b><span>${l}</span></a>`;
   const more = (arr, n) => arr.length > n ? `<p class="m"><a href="#/app/assignments">+ ${arr.length - n} more in My Assignments →</a></p>` : "";
   const snip = t => esc(t.length > 140 ? t.slice(0, 140).trimEnd() + "…" : t);
   body.innerHTML = `<p class="sub">Welcome back, ${esc(p.name || "student")}. ${esc(semName(cur))}.</p>
-    <div class="st-stats">${stat(todo, "To do")}${stat(doing, "In progress")}${stat(done, "Done")}${stat(overdue, "Overdue", overdue ? "bad" : "")}</div>
-    <div class="st-prog" role="img" aria-label="${pct}% of assignments done"><i style="width:${pct}%"></i></div>
-    <p class="m">${pct}% of ${asg.length} assignments done</p>
+    <div class="st-stats">${stat(todo, "To do", "todo")}${stat(doing, "Active", "active")}${stat(done, "Done", "done")}${stat(overdue, "Overdue", "overdue", overdue ? "bad" : "")}</div>
+    <div class="st-prog" role="img" aria-label="${pct}% of items done"><i style="width:${pct}%"></i></div>
+    <p class="m">${pct}% of ${items.length} items done</p>
     <h2>Needs attention</h2>${attention.slice(0, 6).map(it => stRow(it, prog, false)).join("") || '<p class="empty">Nothing overdue or due this week.</p>'}${more(attention, 6)}
     <h2>High priority</h2>${high.slice(0, 5).map(it => stRow(it, prog, false)).join("") || '<p class="empty">No high-priority items. Set some in My Assignments.</p>'}${more(high, 5)}
     <h2>Recent notes</h2>${notes.slice(0, 3).map(n => `<div class="st-card"><div class="m">${stShort(n.updated_at)}</div><div class="st-nb">${snip(n.body)}</div></div>`).join("") || '<p class="empty">No notes yet.</p>'}

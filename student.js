@@ -88,7 +88,7 @@ async function studentRoute(h) {
   const body = $app.querySelector("#st-body"), token = ++stToken, stale = () => token !== stToken;
   const render = StudentPages[page[0]];
   if (!render) { body.innerHTML = `<p class="sub">${esc(page[1])} is coming soon.</p>`; return; }
-  try { await render(body, stale); }
+  try { await render(body, stale, h.split("/")[2]); }
   catch (err) { if (!stale()) body.innerHTML = `<p class="st-err">Couldn't load this page: ${esc(err.message)}. Try refreshing.</p>`; }
 }
 
