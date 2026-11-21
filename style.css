@@ -123,3 +123,13 @@ a.st-stat:hover{border-color:var(--acc)}
 .st-extnote{color:var(--warn);font-style:italic}
 .st-extform .st-row{margin-top:.2rem}
 .st-emailset{margin-top:2rem}
+
+/* Admin */
+.st-scroll{overflow-x:auto;margin-bottom:1rem}
+.st-table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--card);border:1px solid var(--line)}
+.st-table th{text-align:left;color:var(--mute);font-weight:600;white-space:nowrap}
+.st-table th,.st-table td{padding:.5rem .65rem;border-bottom:1px solid var(--line);vertical-align:top}
+.st-table td.bad{color:var(--bad);font-weight:600}
+.st-detail td{background:var(--bg)}.st-detail p{margin:.2rem 0}
+.st-rowbtn{font:inherit;font-weight:600;text-align:left;background:none;border:0;padding:0;color:var(--ink);cursor:pointer}
+.st-rowbtn:hover,.st-rowbtn[aria-expanded="true"]{color:var(--acc)}

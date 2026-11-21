@@ -86,11 +86,21 @@ const Store = (() => {
     }
   };
 
-  // Admin-only reads (RLS returns rows for everyone only when profiles.role = 'admin').
+  // Admin-only reads (the database returns other students' rows only to accounts with profiles.role = 'admin').
+  // The server returns at most 1000 rows per request, so list queries are fetched in pages.
+  const pages = async make => {
+    const out = [];
+    for (let from = 0; from < 20000; from += 1000) {
+      const rows = ok(await make().range(from, from + 999));
+      out.push(...rows); if (rows.length < 1000) break;
+    }
+    return out;
+  };
   const admin = {
-    async profiles() { return ok(await db().from("profiles").select("*").order("name")); },
-    async progress() { return ok(await db().from("assignment_progress").select("*")); },
-    async log(limit = 500) { return ok(await db().from("progress_log").select("*").order("changed_at", { ascending: false }).limit(limit)); }
+    profiles: () => pages(() => db().from("profiles").select("*").order("name").order("id")),
+    progress: () => pages(() => db().from("assignment_progress").select("*").order("user_id").order("assignment_id")),
+    reports: () => pages(() => db().from("period_reports").select("user_id,period,period_start,emailed_at").order("emailed_at", { ascending: false }).order("id")),
+    async logFor(userId, limit = 20) { return ok(await db().from("progress_log").select("*").eq("user_id", userId).order("changed_at", { ascending: false }).limit(limit)); }
   };
 
   return { progress, notes, events, log, reports, profile, admin };
