@@ -50,3 +50,86 @@ a.t{text-decoration:none}a.t:hover{text-decoration:underline}
 .pop .notice{border:0;padding:.2rem;margin:0}
 .bar{height:5px;background:var(--line);border-radius:3px;margin:.8rem 0;overflow:hidden}.bar i{display:block;height:100%;width:100%;background:var(--bad)}
 .btn{font:inherit;font-weight:600;padding:.4rem 1rem;border-radius:8px;border:1px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer}
+
+/* Student area */
+.st-tabs{display:flex;gap:.25rem;flex-wrap:wrap;margin:0 0 1.5rem}
+.st-tabs a{padding:.3rem .7rem;border-radius:6px;text-decoration:none;color:var(--mute);font-size:.9rem;border:1px solid var(--line);background:var(--card)}
+.st-tabs a.on{color:var(--ink);border-color:var(--acc)}
+.st-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1rem;margin-bottom:1rem}
+.st-btn{font:inherit;font-weight:600;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:.6rem 1.1rem;cursor:pointer}
+.st-btn.st-quiet{background:var(--card);color:var(--mute);border:1px solid var(--line)}
+.st-item{align-items:center;justify-content:space-between}
+.st-main{flex:1;min-width:0}
+.st-ctl{display:flex;gap:.4rem;flex-wrap:wrap}
+.st-sel{font:inherit;font-size:.85rem;padding:.3rem .45rem;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}
+.item.p1{border-left-color:var(--acc)}.item.p2{border-left-color:var(--warn)}.item.p3{border-left-color:var(--bad)}
+.item.st-done{opacity:.6}.item.st-done .t{text-decoration:line-through}
+.item.st-over .m{color:var(--bad)}
+.st-bar-row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:.75rem}
+.st-filters{display:flex;gap:.35rem;flex-wrap:wrap}
+.st-pill{font:inherit;font-size:.85rem;padding:.25rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--mute);cursor:pointer}
+.st-pill.on{color:var(--ink);border-color:var(--acc);font-weight:600}
+.st-msg{min-height:1.4rem;font-size:.85rem;color:var(--mute);margin:.1rem 0 .4rem}.st-msg.bad,.st-err{color:var(--bad)}
+.st-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:.6rem;margin-bottom:1rem}
+.st-stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem}
+.st-stat b{display:block;font-size:1.7rem;line-height:1.1}.st-stat span{font-size:.85rem;color:var(--mute)}.st-stat.bad b{color:var(--bad)}
+.st-prog{height:8px;background:var(--line);border-radius:4px;overflow:hidden}.st-prog i{display:block;height:100%;background:var(--acc)}
+.st-ta{width:100%;font:inherit;padding:.6rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);resize:vertical}
+.st-row{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
+.st-nb{white-space:pre-wrap;overflow-wrap:anywhere;margin:.3rem 0}
+.st-link{font:inherit;font-size:.85rem;background:none;border:0;padding:0;color:var(--acc);cursor:pointer;text-decoration:underline}
+.st-foot{margin-top:2.5rem}
+@media(max-width:560px){.st-item{flex-direction:column;align-items:stretch}}
+a.st-stat{display:block;text-decoration:none;color:inherit}
+a.st-stat:hover{border-color:var(--acc)}
+.st-n{font-weight:400;opacity:.65;margin-left:.35rem}
+
+/* Reports, history, calendar */
+.st-nav{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
+.st-pill:disabled{opacity:.4;cursor:default}
+.st-sum{font-size:1.05rem;margin:.2rem 0 1rem}
+.st-days{display:flex;gap:3px;align-items:flex-end;height:130px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.6rem .6rem .4rem}
+.st-days>div{flex:1;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px}
+.st-days i{display:block;width:70%;max-width:34px;min-height:2px;background:var(--acc);border-radius:3px 3px 0 0}
+.st-days em{font-style:normal;font-size:.75rem;color:var(--mute);min-height:1em}
+.st-days span{font-size:.72rem;color:var(--mute)}.st-days.month span,.st-days.month em{font-size:.6rem}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+.st-chg{font-size:.85rem;color:var(--mute);white-space:nowrap}
+.st-to{color:var(--ink)}.st-to.done{color:var(--acc)}
+.st-in{width:100%;font:inherit;padding:.5rem .6rem;margin-bottom:.5rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.st-cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.st-wd{font-size:.75rem;color:var(--mute);text-align:center;padding:.2rem 0}
+.st-cell{font:inherit;text-align:left;min-height:88px;padding:.3rem;background:var(--card);border:1px solid var(--line);border-radius:6px;cursor:pointer;color:var(--ink);overflow:hidden;display:flex;flex-direction:column;gap:2px}
+.st-cell:hover{border-color:var(--acc)}.st-cell.sel{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc)}
+.st-cell.today .st-dn{background:var(--acc);color:#fff;border-radius:999px;padding:0 .4rem}
+.st-dn{font-size:.8rem;font-weight:600;align-self:flex-start}
+.st-chip{display:block;font-size:.7rem;line-height:1.25;padding:.05rem .3rem;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1px solid var(--line)}
+.st-chip.a{background:color-mix(in srgb,var(--acc) 14%,var(--card));border-color:transparent}
+.st-chip.over{background:color-mix(in srgb,var(--bad) 14%,var(--card));color:var(--bad);border-color:transparent}
+.st-chip.done{opacity:.55;text-decoration:line-through}
+.st-chip.e{border-color:var(--acc);color:var(--acc)}
+.st-more{font-size:.7rem;color:var(--mute)}
+.st-legend .st-chip{display:inline-block}
+@media(max-width:560px){.st-cell{min-height:56px;padding:.2rem}.st-chip{font-size:0;height:6px;padding:0}.st-days{height:100px}}
+
+.tag.ext{color:var(--acc);border-color:var(--acc)}
+.st-extline{display:block;font-size:.85rem;color:var(--mute);margin-top:.15rem}
+.st-extform{display:block;margin-top:.5rem}
+.st-extform label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:.3rem}
+/* The old rule ".item input" (public-board checkboxes: 1.2rem square) also hit these boxes, so size them explicitly. */
+.st-extform .st-in{width:auto;height:auto;box-sizing:border-box;margin:0 .4rem .4rem 0;padding:.4rem .55rem;font-size:.9rem;line-height:1.3;cursor:text;max-width:100%}
+.st-extform .st-in[data-x="date"]{min-width:11rem}
+.st-extform .st-in[data-x="note"]{width:100%;max-width:26rem;display:block}
+.st-extnote{color:var(--warn);font-style:italic}
+.st-extform .st-row{margin-top:.2rem}
+.st-emailset{margin-top:2rem}
+
+/* Admin */
+.st-scroll{overflow-x:auto;margin-bottom:1rem}
+.st-table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--card);border:1px solid var(--line)}
+.st-table th{text-align:left;color:var(--mute);font-weight:600;white-space:nowrap}
+.st-table th,.st-table td{padding:.5rem .65rem;border-bottom:1px solid var(--line);vertical-align:top}
+.st-table td.bad{color:var(--bad);font-weight:600}
+.st-detail td{background:var(--bg)}.st-detail p{margin:.2rem 0}
+.st-rowbtn{font:inherit;font-weight:600;text-align:left;background:none;border:0;padding:0;color:var(--ink);cursor:pointer}
+.st-rowbtn:hover,.st-rowbtn[aria-expanded="true"]{color:var(--acc)}

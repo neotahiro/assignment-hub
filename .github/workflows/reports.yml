@@ -1,0 +1,49 @@
+name: Progress reports
+
+on:
+  schedule:
+    - cron: "15 1 * * 0"   # Sunday 7:00 AM Nepal time (01:15 UTC): weekly report
+    - cron: "15 1 1 * *"   # 1st of the month, 7:00 AM Nepal time: report for the month that just ended
+  workflow_dispatch:
+    inputs:
+      report:
+        description: "Which report"
+        type: choice
+        options: [week, month]
+        default: week
+      dry_run:
+        description: "Dry run (print counts and YOUR own report, send nothing)"
+        type: boolean
+        default: true
+      only_me:
+        description: "Test mode: send only to me, nothing is recorded"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hub-emails
+  cancel-in-progress: false
+
+jobs:
+  reports:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-save nodemailer@6
+      - run: node scripts/send-reports.js
+        env:
+          REPORT: ${{ github.event_name == 'workflow_dispatch' && inputs.report || (github.event.schedule == '15 1 1 * *' && 'month' || 'week') }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+          ONLY_ME: ${{ github.event_name == 'workflow_dispatch' && inputs.only_me }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          REPLY_TO: ${{ secrets.REPLY_TO }}
