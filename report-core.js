@@ -85,6 +85,13 @@
     };
   }
 
-  const api = { period, shift, label, buildItems, compute, effDue, applyExtensions, todayYMD, localYMD, addDays, fmtDay, fmtStamp, TZ };
+  // One-sentence headline, used by the Reports page and the emails so they always read the same. `when`: "this week", "in November"...
+  function summary(r, when) {
+    const n = r.done.length, diff = n - r.prevDone, prev = "previous " + r.period.type;
+    const delta = diff > 0 ? `▲ ${diff} more than the ${prev}` : diff < 0 ? `▼ ${-diff} fewer than the ${prev}` : `same as the ${prev}`;
+    return n ? `You finished ${n} item${n === 1 ? "" : "s"} ${when}${r.onTime === n ? ", all on time" : ""}. ${delta[0].toUpperCase() + delta.slice(1)}.` : `No items finished ${when}.`;
+  }
+
+  const api = { period, shift, label, buildItems, compute, summary, effDue, applyExtensions, todayYMD, localYMD, addDays, fmtDay, fmtStamp, TZ };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.ReportCore = api;
 })(typeof window !== "undefined" ? window : globalThis);

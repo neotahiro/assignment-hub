@@ -63,7 +63,7 @@ function stRow(it, prog, controls = true) {
         + `<input type="text" class="st-in" data-x="note" maxlength="300" placeholder="Note (optional), e.g. approved by email" aria-label="Extension note" value="${esc((row && row.extension_note) || "")}">`
         + `<span class="st-row"><button type="button" class="st-btn" data-ext="save">Save extension</button><button type="button" class="st-btn st-quiet" data-ext="cancel">Cancel</button></span></span>`;
     } else if (it.origDue) {
-      ext = `<span class="st-extline">${it.extNote ? esc(it.extNote) + " · " : ""}<button type="button" class="st-link" data-ext="open">Change</button> · <button type="button" class="st-link" data-ext="remove">Remove</button></span>`;
+      ext = `<span class="st-extline">${it.extNote ? '<span class="st-extnote">“' + esc(it.extNote) + '”</span> · ' : ""}<button type="button" class="st-link" data-ext="open">Change</button> · <button type="button" class="st-link" data-ext="remove">Remove</button></span>`;
     } else ext = `<span class="st-extline"><button type="button" class="st-link" data-ext="open">Add my extension</button></span>`;
   }
   return `<div class="item st-item p${p}${s === "done" ? " st-done" : stOverdue(it, prog) ? " st-over" : ""}" data-id="${esc(it.id)}" data-orig="${esc(orig || "")}">`

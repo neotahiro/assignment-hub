@@ -116,6 +116,10 @@ a.st-stat:hover{border-color:var(--acc)}
 .st-extline{display:block;font-size:.85rem;color:var(--mute);margin-top:.15rem}
 .st-extform{display:block;margin-top:.5rem}
 .st-extform label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:.3rem}
-.st-extform .st-in{width:auto;max-width:100%;margin:0 .4rem .4rem 0}
+/* The old rule ".item input" (public-board checkboxes: 1.2rem square) also hit these boxes, so size them explicitly. */
+.st-extform .st-in{width:auto;height:auto;box-sizing:border-box;margin:0 .4rem .4rem 0;padding:.4rem .55rem;font-size:.9rem;line-height:1.3;cursor:text;max-width:100%}
+.st-extform .st-in[data-x="date"]{min-width:11rem}
 .st-extform .st-in[data-x="note"]{width:100%;max-width:26rem;display:block}
+.st-extnote{color:var(--warn);font-style:italic}
 .st-extform .st-row{margin-top:.2rem}
+.st-emailset{margin-top:2rem}
