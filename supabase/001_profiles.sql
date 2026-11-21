@@ -30,6 +30,8 @@ create policy "update own profile" on public.profiles for update
 
 -- Students may only change their display name / avatar, never their role.
 revoke insert, update, delete on public.profiles from anon, authenticated;
+grant usage on schema public to anon, authenticated, service_role;
+grant select on public.profiles to authenticated;
 grant update (name, avatar_url) on public.profiles to authenticated;
 
 -- Auto-create a profile the first time someone signs in with Google.
