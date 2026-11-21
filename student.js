@@ -1,7 +1,7 @@
 // Student area (#/app/...): shell, shared helpers. Individual pages live in student-pages.js.
 const STUDENT_PAGES = [
   ["dashboard", "My Dashboard"], ["assignments", "My Assignments"], ["calendar", "My Calendar"],
-  ["notes", "My Notes"], ["priorities", "My Priorities"], ["history", "My Progress History"], ["reports", "Weekly Reports"]
+  ["notes", "My Notes"], ["priorities", "My Priorities"], ["history", "My Progress History"], ["reports", "Reports"]
 ];
 const StudentPages = {};   // key -> async (bodyEl, isStale) => renders into bodyEl
 let stToken = 0;           // bumped on every navigation so slow requests can't draw over a newer page

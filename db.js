@@ -55,8 +55,19 @@ const Store = (() => {
     async remove(id) { ok(await db().from("calendar_events").delete().eq("id", id)); }
   };
 
-  const log = { async list(limit = 200) { return ok(await db().from("progress_log").select("*").order("changed_at", { ascending: false }).limit(limit)); } };
-  const reports = { async list() { return ok(await db().from("weekly_reports").select("*").order("week_start", { ascending: false })); } };
+  const log = {
+    async list(limit = 200) { return ok(await db().from("progress_log").select("*").order("changed_at", { ascending: false }).limit(limit)); },
+    // Every history row, newest first. The server returns at most 1000 rows per request, so fetch in pages.
+    async all() {
+      const out = [];
+      for (let from = 0; from < 10000; from += 1000) {
+        const rows = ok(await db().from("progress_log").select("*").order("changed_at", { ascending: false }).order("id", { ascending: false }).range(from, from + 999));
+        out.push(...rows); if (rows.length < 1000) break;
+      }
+      return out;
+    }
+  };
+  const reports = { async list() { return ok(await db().from("period_reports").select("*").order("period_start", { ascending: false })); } };
 
   const profile = {
     async update({ name, email_reports }) {

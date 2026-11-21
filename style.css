@@ -83,3 +83,31 @@ a.t{text-decoration:none}a.t:hover{text-decoration:underline}
 a.st-stat{display:block;text-decoration:none;color:inherit}
 a.st-stat:hover{border-color:var(--acc)}
 .st-n{font-weight:400;opacity:.65;margin-left:.35rem}
+
+/* Reports, history, calendar */
+.st-nav{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
+.st-pill:disabled{opacity:.4;cursor:default}
+.st-sum{font-size:1.05rem;margin:.2rem 0 1rem}
+.st-days{display:flex;gap:3px;align-items:flex-end;height:130px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.6rem .6rem .4rem}
+.st-days>div{flex:1;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px}
+.st-days i{display:block;width:70%;max-width:34px;min-height:2px;background:var(--acc);border-radius:3px 3px 0 0}
+.st-days em{font-style:normal;font-size:.75rem;color:var(--mute);min-height:1em}
+.st-days span{font-size:.72rem;color:var(--mute)}.st-days.month span,.st-days.month em{font-size:.6rem}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+.st-chg{font-size:.85rem;color:var(--mute);white-space:nowrap}
+.st-to{color:var(--ink)}.st-to.done{color:var(--acc)}
+.st-in{width:100%;font:inherit;padding:.5rem .6rem;margin-bottom:.5rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.st-cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.st-wd{font-size:.75rem;color:var(--mute);text-align:center;padding:.2rem 0}
+.st-cell{font:inherit;text-align:left;min-height:88px;padding:.3rem;background:var(--card);border:1px solid var(--line);border-radius:6px;cursor:pointer;color:var(--ink);overflow:hidden;display:flex;flex-direction:column;gap:2px}
+.st-cell:hover{border-color:var(--acc)}.st-cell.sel{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc)}
+.st-cell.today .st-dn{background:var(--acc);color:#fff;border-radius:999px;padding:0 .4rem}
+.st-dn{font-size:.8rem;font-weight:600;align-self:flex-start}
+.st-chip{display:block;font-size:.7rem;line-height:1.25;padding:.05rem .3rem;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1px solid var(--line)}
+.st-chip.a{background:color-mix(in srgb,var(--acc) 14%,var(--card));border-color:transparent}
+.st-chip.over{background:color-mix(in srgb,var(--bad) 14%,var(--card));color:var(--bad);border-color:transparent}
+.st-chip.done{opacity:.55;text-decoration:line-through}
+.st-chip.e{border-color:var(--acc);color:var(--acc)}
+.st-more{font-size:.7rem;color:var(--mute)}
+.st-legend .st-chip{display:inline-block}
+@media(max-width:560px){.st-cell{min-height:56px;padding:.2rem}.st-chip{font-size:0;height:6px;padding:0}.st-days{height:100px}}
