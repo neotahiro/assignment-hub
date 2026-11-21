@@ -5,7 +5,7 @@ StudentPages.calendar = async (body, stale) => {
   let events = events0, sel = today, y = Number(today.slice(0, 4)), m = Number(today.slice(5, 7)) - 1, editing = null;
   const pad = n => String(n).padStart(2, "0"), ymd = (yy, mm, d) => yy + "-" + pad(mm + 1) + "-" + pad(d);
   const dueBy = new Map();
-  studentItems().filter(it => it.due).forEach(it => { if (!dueBy.has(it.due)) dueBy.set(it.due, []); dueBy.get(it.due).push(it); });
+  studentItems().map(it => stEffective(it, prog)).filter(it => it.due).forEach(it => { if (!dueBy.has(it.due)) dueBy.set(it.due, []); dueBy.get(it.due).push(it); });
   const evOn = d => events.filter(e => e.event_date === d);
   const short = (t, n) => esc(t.length > n ? t.slice(0, n - 1) + "…" : t);
 

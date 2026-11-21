@@ -26,7 +26,7 @@ StudentPages.assignments = async (body, stale, sub) => {
     const pool = all.filter(it => it.sem === sem);
     pills.innerHTML = ST_FILTERS.map(([k, l]) => `<button type="button" class="st-pill${k === filter ? " on" : ""}" data-filter="${k}" aria-pressed="${k === filter}">${l}<span class="st-n">${pool.filter(match[k]).length}</span></button>`).join("");
     const isDone = it => stStatus(prog, it.id) === "done" ? 1 : 0;
-    const items = pool.filter(match[filter]).sort((a, b) => (filter === "all" ? isDone(a) - isDone(b) : 0) || dueAt(a) - dueAt(b));
+    const items = pool.filter(match[filter]).sort((a, b) => (filter === "all" ? isDone(a) - isDone(b) : 0) || dueAt(stEffective(a, prog)) - dueAt(stEffective(b, prog)));
     list.innerHTML = items.map(it => stRow(it, prog)).join("") || `<p class="empty">${ST_EMPTY[filter]}</p>`;
   };
   body.addEventListener("click", e => {
@@ -39,6 +39,7 @@ StudentPages.assignments = async (body, stale, sub) => {
   const semSel = body.querySelector("#st-sem");
   if (semSel) semSel.addEventListener("change", () => { sem = Number(semSel.value); draw(); });
   stWire(body, prog, draw);
+  stWireExtensions(body, prog, draw);
   draw();
 };
 
@@ -51,11 +52,12 @@ StudentPages.priorities = async (body, stale) => {
   const draw = () => {
     const open = all.filter(it => stPrio(prog, it.id) > 0 && stStatus(prog, it.id) !== "done");
     list.innerHTML = [[3, "High"], [2, "Medium"], [1, "Low"]].map(([p, label]) => {
-      const rows = open.filter(it => stPrio(prog, it.id) === p).sort((a, b) => dueAt(a) - dueAt(b));
+      const rows = open.filter(it => stPrio(prog, it.id) === p).sort((a, b) => dueAt(stEffective(a, prog)) - dueAt(stEffective(b, prog)));
       return rows.length ? `<h2>${label}</h2>` + rows.map(it => stRow(it, prog)).join("") : "";
     }).join("") || `<p class="empty">No priorities set. Pick a priority on any assignment in My Assignments.</p>`;
   };
   stWire(body, prog, draw);
+  stWireExtensions(body, prog, draw);
   draw();
 };
 
@@ -63,7 +65,7 @@ StudentPages.priorities = async (body, stale) => {
 StudentPages.dashboard = async (body, stale) => {
   const [prog, notes] = await Promise.all([Store.progress.all(), Store.notes.list()]); if (stale()) return;
   const cur = currentSem(), p = Auth.profile() || {};
-  const items = studentItems().filter(it => it.sem === cur);
+  const items = studentItems().filter(it => it.sem === cur).map(it => stEffective(it, prog));   // deadlines include the student's extensions
   const count = s => items.filter(it => stStatus(prog, it.id) === s).length;   // same set the My Assignments page lists
   const done = count("done"), doing = count("doing"), todo = count("todo");
   const overdue = items.filter(it => stOverdue(it, prog)).length;

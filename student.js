@@ -29,9 +29,18 @@ function studentItems() {
   if (typeof GENERAL !== "undefined") GENERAL.forEach(a => add(a, "assignment", "General", "general", cur));
   return out;
 }
+let stExtOpen = null;      // id of the row whose extension form is open (kept across redraws)
+
+// The student's own view of an item: deadline = the later of the class deadline and their extension.
+// Extended items carry origDue (class deadline) and extNote. Always derived from the original, so it is safe to apply twice.
+function stEffective(it, prog) {
+  const orig = it.origDue || it.due, row = prog.get(it.id), due = ReportCore.effDue(orig, row && row.personal_due);
+  if (due !== orig) return { ...it, due, origDue: orig, extNote: row.extension_note || null };
+  return it.origDue ? { ...it, due: orig, origDue: null, extNote: null } : it;
+}
 const stStatus = (prog, id) => (prog.get(id) || {}).status || "todo";
 const stPrio = (prog, id) => (prog.get(id) || {}).priority || 0;
-const stOverdue = (it, prog) => stStatus(prog, it.id) !== "done" && !!it.due && dueAt(it) < new Date();
+const stOverdue = (it, prog) => { const e = stEffective(it, prog); return stStatus(prog, e.id) !== "done" && !!e.due && dueAt(e) < new Date(); };
 const stShort = (d) => new Date(d).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 
 function stSelect(field, cur, options) {
@@ -39,14 +48,26 @@ function stSelect(field, cur, options) {
     + options.map(([v, l]) => `<option value="${v}"${String(v) === String(cur) ? " selected" : ""}>${l}</option>`).join("") + "</select>";
 }
 function stRow(it, prog, controls = true) {
-  const s = stStatus(prog, it.id), p = stPrio(prog, it.id), row = prog.get(it.id), rd = it.kind === "reading";
-  const when = s === "done" ? "Done" + (row && row.completed_at ? " · " + stShort(row.completed_at) : "") : dueLabel({ ...it, done: false });
+  it = stEffective(it, prog);
+  const s = stStatus(prog, it.id), p = stPrio(prog, it.id), row = prog.get(it.id), rd = it.kind === "reading", orig = it.origDue || it.due;
+  const when = s === "done" ? "Done" + (row && row.completed_at ? " · " + stShort(row.completed_at) : "")
+    : dueLabel({ ...it, done: false }) + (it.origDue ? ` · was ${fmt(it.origDue)}` : "");
   const title = /^https?:\/\//i.test(it.link || "")
     ? `<a class="t" href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a>` : `<span class="t">${esc(it.title)}</span>`;
   const ctl = controls ? `<span class="st-ctl">${stSelect("status", s, [["todo", "To do"], ["doing", "In progress"], ["done", "Done"]])}`
     + `${stSelect("priority", p, [[0, "No priority"], [1, "Low priority"], [2, "Medium priority"], [3, "High priority"]])}</span>` : "";
-  return `<div class="item st-item p${p}${s === "done" ? " st-done" : stOverdue(it, prog) ? " st-over" : ""}" data-id="${esc(it.id)}">`
-    + `<span class="st-main">${rd ? '<span class="tag">Reading</span>' : ""}${title}<br><span class="m">${esc(it.subj)} · ${when}</span></span>${ctl}</div>`;
+  let ext = "";
+  if (controls && s !== "done" && orig) {
+    if (stExtOpen === it.id) {
+      ext = `<span class="st-extform"><label>My new deadline <input type="date" class="st-in" data-x="date" min="${ReportCore.addDays(orig, 1)}" value="${esc((row && row.personal_due) || "")}"></label>`
+        + `<input type="text" class="st-in" data-x="note" maxlength="300" placeholder="Note (optional), e.g. approved by email" aria-label="Extension note" value="${esc((row && row.extension_note) || "")}">`
+        + `<span class="st-row"><button type="button" class="st-btn" data-ext="save">Save extension</button><button type="button" class="st-btn st-quiet" data-ext="cancel">Cancel</button></span></span>`;
+    } else if (it.origDue) {
+      ext = `<span class="st-extline">${it.extNote ? esc(it.extNote) + " · " : ""}<button type="button" class="st-link" data-ext="open">Change</button> · <button type="button" class="st-link" data-ext="remove">Remove</button></span>`;
+    } else ext = `<span class="st-extline"><button type="button" class="st-link" data-ext="open">Add my extension</button></span>`;
+  }
+  return `<div class="item st-item p${p}${s === "done" ? " st-done" : stOverdue(it, prog) ? " st-over" : ""}" data-id="${esc(it.id)}" data-orig="${esc(orig || "")}">`
+    + `<span class="st-main">${rd ? '<span class="tag">Reading</span>' : ""}${it.origDue ? '<span class="tag ext">Extended</span>' : ""}${title}<br><span class="m">${esc(it.subj)} · ${when}</span>${ext}</span>${ctl}</div>`;
 }
 
 let stFlashTimer;
@@ -74,6 +95,33 @@ function stWire(body, prog, redraw) {
   });
 }
 
+// Extension form actions (open / save / cancel / remove), same optimistic-save pattern as the dropdowns.
+function stWireExtensions(body, prog, redraw) {
+  const focusOpen = id => { const n = body.querySelector(`[data-id="${CSS.escape(id)}"] [data-ext="open"]`); if (n) n.focus(); };
+  body.addEventListener("click", async e => {
+    const b = e.target.closest && e.target.closest("[data-ext]"); if (!b) return;
+    const rowEl = b.closest("[data-id]"); if (!rowEl) return;
+    const id = rowEl.dataset.id, orig = rowEl.dataset.orig, act = b.dataset.ext;
+    if (act === "open") { stExtOpen = id; redraw(); const d = body.querySelector(`[data-id="${CSS.escape(id)}"] [data-x="date"]`); if (d) d.focus(); return; }
+    if (act === "cancel") { stExtOpen = null; redraw(); focusOpen(id); return; }
+    let patch;
+    if (act === "remove") patch = { personal_due: null, extension_note: null };
+    else {
+      const date = rowEl.querySelector('[data-x="date"]').value, note = rowEl.querySelector('[data-x="note"]').value.trim();
+      if (!date) return flash(body, "Pick your new deadline first.", true);
+      if (date <= orig) return flash(body, "Pick a date after the class deadline (" + fmt(orig) + ").", true);
+      if (date > ReportCore.addDays(orig, 365)) return flash(body, "That's more than a year after the class deadline. Check the date.", true);
+      patch = { personal_due: date, extension_note: note || null };
+    }
+    const before = prog.get(id);
+    prog.set(id, { ...(before || { assignment_id: id, status: "todo", priority: 0 }), ...patch });
+    stExtOpen = null; redraw(); flash(body, "Saving…");
+    try { prog.set(id, await Store.progress.set(id, patch)); flash(body, act === "remove" ? "Extension removed" : "Extension saved"); }
+    catch (err) { before ? prog.set(id, before) : prog.delete(id); redraw(); flash(body, "Couldn't save: " + err.message, true); }
+    focusOpen(id);
+  });
+}
+
 async function studentRoute(h) {
   if (!Auth.available) { $app.innerHTML = `<h1>My Hub</h1><p class="sub">Student accounts are unavailable right now. The public board still works.</p>`; return; }
   if (!Auth.isReady()) { $app.innerHTML = `<p class="sub">Loading…</p>`; return; }
@@ -85,6 +133,7 @@ async function studentRoute(h) {
   const tabs = pages.map(([k, label]) => `<a href="#/app/${k}" class="${k === page[0] ? "on" : ""}">${esc(label)}</a>`).join("");
   $app.innerHTML = `<h1>${esc(page[1])}</h1><div class="st-tabs">${tabs}</div><div id="st-body"><p class="sub">Loading…</p></div>`
     + `<p class="st-foot"><button class="st-btn st-quiet" data-auth="out">Sign out</button></p>`;
+  stExtOpen = null;
   const body = $app.querySelector("#st-body"), token = ++stToken, stale = () => token !== stToken;
   const render = StudentPages[page[0]];
   if (!render) { body.innerHTML = `<p class="sub">${esc(page[1])} is coming soon.</p>`; return; }

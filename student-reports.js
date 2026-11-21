@@ -1,16 +1,17 @@
 // Reports: week-by-week or month-by-month. Numbers come from ReportCore, the same code the email job uses.
 StudentPages.reports = async (body, stale) => {
-  const log = await Store.log.all(); if (stale()) return;
+  const [log, prog] = await Promise.all([Store.log.all(), Store.progress.all()]); if (stale()) return;
   const RC = ReportCore;
   const data = () => ({ SUBJECTS, SEMESTERS: typeof SEMESTERS !== "undefined" ? SEMESTERS : [], GENERAL: typeof GENERAL !== "undefined" ? GENERAL : [] });
   let p = RC.period("week", RC.todayYMD());
-  const dueText = it => "Due " + RC.fmtDay(it.due, { weekday: "short", month: "short", day: "numeric" }) + (it.time ? ", " + fmtTime(it.time) : "");
+  const dueText = it => "Due " + RC.fmtDay(it.due, { weekday: "short", month: "short", day: "numeric" }) + (it.time ? ", " + fmtTime(it.time) : "") + (it.origDue ? " · extended from " + RC.fmtDay(it.origDue, { month: "short", day: "numeric" }) : "");
   const row = (it, tag, note) => `<div class="item st-item"><span class="st-main">${it.kind === "reading" ? '<span class="tag">Reading</span>' : ""}<span class="t">${esc(it.title)}</span>${tag || ""}<br><span class="m">${esc(it.subj)} · ${note}</span></span></div>`;
   const list = (title, items, mk, cap = 8) => items.length ? `<h2>${title} <span class="m">(${items.length})</span></h2>${items.slice(0, cap).map(mk).join("")}${items.length > cap ? `<p class="m">and ${items.length - cap} more</p>` : ""}` : "";
 
   const draw = () => {
     const today = RC.todayYMD(), cur = RC.period(p.type, today), isCur = cur.start === p.start;
-    const r = RC.compute(RC.buildItems(data(), p.end < today ? p.end : today), log, p);
+    const items = RC.applyExtensions(RC.buildItems(data(), p.end < today ? p.end : today), id => (prog.get(id) || {}).personal_due);   // deadlines include extensions
+    const r = RC.compute(items, log, p);
     const n = r.done.length, diff = n - r.prevDone, unit = p.type, prevWord = "previous " + unit;
     const delta = diff > 0 ? `▲ ${diff} more than the ${prevWord}` : diff < 0 ? `▼ ${-diff} fewer than the ${prevWord}` : `same as the ${prevWord}`;
     const when = isCur ? "this " + unit : "that " + unit;

@@ -111,3 +111,11 @@ a.st-stat:hover{border-color:var(--acc)}
 .st-more{font-size:.7rem;color:var(--mute)}
 .st-legend .st-chip{display:inline-block}
 @media(max-width:560px){.st-cell{min-height:56px;padding:.2rem}.st-chip{font-size:0;height:6px;padding:0}.st-days{height:100px}}
+
+.tag.ext{color:var(--acc);border-color:var(--acc)}
+.st-extline{display:block;font-size:.85rem;color:var(--mute);margin-top:.15rem}
+.st-extform{display:block;margin-top:.5rem}
+.st-extform label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:.3rem}
+.st-extform .st-in{width:auto;max-width:100%;margin:0 .4rem .4rem 0}
+.st-extform .st-in[data-x="note"]{width:100%;max-width:26rem;display:block}
+.st-extform .st-row{margin-top:.2rem}

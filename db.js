@@ -19,9 +19,17 @@ const Store = (() => {
   const progress = {
     // -> Map of assignment_id -> row
     async all() { return new Map(ok(await db().from("assignment_progress").select("*")).map(r => [r.assignment_id, r])); },
-    // patch may contain: status ('todo'|'doing'|'done'), priority (0-3), personal_due ('YYYY-MM-DD' or null)
+    // patch may contain: status ('todo'|'doing'|'done'), priority (0-3), personal_due ('YYYY-MM-DD' = deadline extension, or null to remove), extension_note
     async set(id, patch) {
-      const row = { assignment_id: id, ...clean(patch, ["status", "priority", "personal_due"]) };
+      const p = clean(patch, ["status", "priority", "personal_due", "extension_note"]);
+      if (p.personal_due != null && !/^\d{4}-\d{2}-\d{2}$/.test(p.personal_due)) throw new Error("Date must be YYYY-MM-DD");
+      if (p.extension_note != null) {
+        const t = String(p.extension_note).trim();
+        if (t.length > 300) throw new Error("Note is too long (max 300 characters)");
+        p.extension_note = t || null;
+      }
+      if (p.personal_due === null) p.extension_note = null;   // removing an extension removes its note too
+      const row = { assignment_id: id, ...p };
       return ok(await db().from("assignment_progress").upsert(row, { onConflict: "user_id,assignment_id" }).select().single());
     },
     async reset(id) { ok(await db().from("assignment_progress").delete().eq("assignment_id", id)); }

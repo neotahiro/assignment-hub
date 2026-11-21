@@ -28,6 +28,15 @@
     : fmtDay(p.start, { month: "short", day: "numeric" }) + " – " + fmtDay(p.end, { month: "short", day: "numeric", year: "numeric" });
   const fmtStamp = (ts, o) => new Date(ts).toLocaleString("en-US", { timeZone: TZ, ...o });
 
+  // A student's effective deadline = the LATER of the class deadline and their own extension (never earlier).
+  // Dates are "YYYY-MM-DD" strings, so plain string comparison is correct.
+  const effDue = (due, personal) => (due && personal && personal > due) ? personal : due;
+  // ext: a function id -> date, a Map, or a plain object. Extended items get due = new date and origDue = class deadline.
+  function applyExtensions(items, ext) {
+    const get = typeof ext === "function" ? ext : ext instanceof Map ? (id => ext.get(id)) : (id => (ext || {})[id]);
+    return items.map(it => { const d = effDue(it.due, get(it.id)); return d === it.due ? it : { ...it, due: d, origDue: it.due }; });
+  }
+
   // Trackable items (assignments + readings with a due date + GENERAL) in the semester that contains ymd.
   function buildItems(data, ymd) {
     const sems = data.SEMESTERS && data.SEMESTERS.length ? data.SEMESTERS : [{ id: 1, start: "0000-01-01" }];
@@ -76,6 +85,6 @@
     };
   }
 
-  const api = { period, shift, label, buildItems, compute, todayYMD, localYMD, addDays, fmtDay, fmtStamp, TZ };
+  const api = { period, shift, label, buildItems, compute, effDue, applyExtensions, todayYMD, localYMD, addDays, fmtDay, fmtStamp, TZ };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.ReportCore = api;
 })(typeof window !== "undefined" ? window : globalThis);
