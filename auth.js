@@ -42,11 +42,15 @@ const Auth = (() => {
     client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
       auth: { flowType: "pkce", detectSessionInUrl: true, persistSession: true, autoRefreshToken: true }
     });
+    // Supabase re-announces "signed in" on tab refocus and token refresh. Only re-render the app when
+    // who is signed in (or their role/name) really changed, so a half-typed note is never wiped.
+    let lastKey = null;
+    const keyOf = () => (session ? session.user.id : "") + "|" + (profile ? profile.role + "|" + profile.name : "");
     client.auth.onAuthStateChange((event, s) => {
       if (event === "INITIAL_SESSION") return;
       session = s;
       // Defer: calling Supabase inside this callback can deadlock.
-      setTimeout(async () => { await loadProfile(); notify(); }, 0);
+      setTimeout(async () => { await loadProfile(); const k = keyOf(); if (k !== lastKey) { lastKey = k; notify(); } }, 0);
     });
     (async () => {
       try {
@@ -57,6 +61,7 @@ const Auth = (() => {
         if (session && store.get(AFTER_LOGIN)) { const to = store.get(AFTER_LOGIN); store.del(AFTER_LOGIN); location.hash = to; }
       } catch (e) { console.warn("auth init failed", e); }
       isReady = true;
+      lastKey = keyOf();
       notify();
     })();
   }

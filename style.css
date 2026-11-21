@@ -58,3 +58,25 @@ a.t{text-decoration:none}a.t:hover{text-decoration:underline}
 .st-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1rem;margin-bottom:1rem}
 .st-btn{font:inherit;font-weight:600;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:.6rem 1.1rem;cursor:pointer}
 .st-btn.st-quiet{background:var(--card);color:var(--mute);border:1px solid var(--line)}
+.st-item{align-items:center;justify-content:space-between}
+.st-main{flex:1;min-width:0}
+.st-ctl{display:flex;gap:.4rem;flex-wrap:wrap}
+.st-sel{font:inherit;font-size:.85rem;padding:.3rem .45rem;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}
+.item.p1{border-left-color:var(--acc)}.item.p2{border-left-color:var(--warn)}.item.p3{border-left-color:var(--bad)}
+.item.st-done{opacity:.6}.item.st-done .t{text-decoration:line-through}
+.item.st-over .m{color:var(--bad)}
+.st-bar-row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:.75rem}
+.st-filters{display:flex;gap:.35rem}
+.st-pill{font:inherit;font-size:.85rem;padding:.25rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--mute);cursor:pointer}
+.st-pill.on{color:var(--ink);border-color:var(--acc);font-weight:600}
+.st-msg{min-height:1.4rem;font-size:.85rem;color:var(--mute);margin:.1rem 0 .4rem}.st-msg.bad,.st-err{color:var(--bad)}
+.st-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:.6rem;margin-bottom:1rem}
+.st-stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem}
+.st-stat b{display:block;font-size:1.7rem;line-height:1.1}.st-stat span{font-size:.85rem;color:var(--mute)}.st-stat.bad b{color:var(--bad)}
+.st-prog{height:8px;background:var(--line);border-radius:4px;overflow:hidden}.st-prog i{display:block;height:100%;background:var(--acc)}
+.st-ta{width:100%;font:inherit;padding:.6rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);resize:vertical}
+.st-row{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
+.st-nb{white-space:pre-wrap;overflow-wrap:anywhere;margin:.3rem 0}
+.st-link{font:inherit;font-size:.85rem;background:none;border:0;padding:0;color:var(--acc);cursor:pointer;text-decoration:underline}
+.st-foot{margin-top:2.5rem}
+@media(max-width:560px){.st-item{flex-direction:column;align-items:stretch}}
