@@ -27,7 +27,7 @@ StudentPages.calendar = async (body, stale) => {
         const st = stStatus(prog, it.id), cls = st === "done" ? "done" : stOverdue(it, prog) ? "over" : "a";
         return `<span class="st-chip ${cls}">${short(it.title, 22)}</span>`;
       }).concat(evOn(date).map(e => `<span class="st-chip e">${short(e.title, 22)}</span>`));
-      h += `<button type="button" class="st-cell${date === today ? " today" : ""}${date === sel ? " sel" : ""}" data-date="${date}" aria-pressed="${date === sel}" aria-label="${esc(RC.fmtDay(date, { weekday: "long", month: "long", day: "numeric" }))}, ${chips.length} item${chips.length === 1 ? "" : "s"}">`
+      h += `<button type="button" class="st-cell${(lead + d - 1) % 7 >= 5 ? " we" : ""}${date === today ? " today" : ""}${date === sel ? " sel" : ""}" data-date="${date}" aria-pressed="${date === sel}" aria-label="${esc(RC.fmtDay(date, { weekday: "long", month: "long", day: "numeric" }))}, ${chips.length} item${chips.length === 1 ? "" : "s"}">`
         + `<span class="st-dn">${d}</span>${chips.slice(0, 3).join("")}${chips.length > 3 ? `<span class="st-more">+${chips.length - 3}</span>` : ""}</button>`;
     }
     $q("#st-cal").innerHTML = h;
