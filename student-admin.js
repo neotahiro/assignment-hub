@@ -54,7 +54,7 @@ StudentPages.admin = async (body, stale, sub) => {
 
   const studentLine = (it, p) => {
     const e = stEffective(it, p), s = stStatus(p, it.id), pr = stPrio(p, it.id), row = p.get(it.id);
-    const when = s === "done" ? "Done" + (row && row.completed_at ? " · " + stShort(row.completed_at) : "") : dueLabel({ ...e, done: false }) + (e.origDue ? ` · was ${fmt(e.origDue)}` : "");
+    const when = s === "done" ? "Done" + (row && row.completed_at ? " · " + stShort(row.completed_at) : "") : dueLabel({ ...e, done: false }) + (e.origDue ? ` · <span class="st-was">was ${fmt(e.origDue)}</span>` : "");
     return `<div class="item st-item${s === "done" ? " st-done" : stOverdue(it, p) ? " st-over" : ""}"><span class="st-main">${e.origDue ? tag("Extended", "ext") : ""}<span class="t">${esc(cut(it.title, 90))}</span><br><span class="m">${esc(it.subj)} · ${when}${e.extNote ? ` · <span class="st-extnote">“${esc(e.extNote)}”</span>` : ""}</span></span>`
       + `<span class="st-chg"><b class="st-to ${s}">${LBL[s]}</b>${pr ? " · " + PRIO[pr] : ""}</span></div>`;
   };

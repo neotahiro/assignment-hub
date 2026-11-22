@@ -51,7 +51,7 @@ function stRow(it, prog, controls = true) {
   it = stEffective(it, prog);
   const s = stStatus(prog, it.id), p = stPrio(prog, it.id), row = prog.get(it.id), rd = it.kind === "reading", orig = it.origDue || it.due;
   const when = s === "done" ? "Done" + (row && row.completed_at ? " · " + stShort(row.completed_at) : "")
-    : dueLabel({ ...it, done: false }) + (it.origDue ? ` · was ${fmt(it.origDue)}` : "");
+    : dueLabel({ ...it, done: false }) + (it.origDue ? ` · <span class="st-was">was ${fmt(it.origDue)}</span>` : "");
   const title = /^https?:\/\//i.test(it.link || "")
     ? `<a class="t" href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a>` : `<span class="t">${esc(it.title)}</span>`;
   const ctl = controls ? `<span class="st-ctl">${stSelect("status", s, [["todo", "To do"], ["doing", "In progress"], ["done", "Done"]])}`
