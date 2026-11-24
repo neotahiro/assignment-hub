@@ -26,7 +26,8 @@ readings: [
     { id: "fsd-a1", module: 1, title: "Community Engagement 2026", link: "https://drive.google.com/file/d/1e6h_cu_luMan6sABGRYJ0KwEjgI8POsi/view", due: "2026-12-19", notify: "all" },
     { id: "fsd-a2", module: 2, title: "Individual Assignment: Environmental Issues in Nepal (2026)", link: "https://drive.google.com/file/d/1hzDeERv8ONANkicXdH33BdIHLaty2yzi/view", due: "2026-10-16", email: "ashish.sinha@kusoed.edu.np", done: true },
     { id: "fsd-a3", module: 2, title: "Group Assignment: Measure ‘Social Sustainability’ Among Marginalized Communities of Nepal, Under Social Inclusion, Cohesion, Resiliency Indicators | Presentation in next class | Click here for more details.", link: "https://drive.google.com/file/d/1rNUS_tvz2_rOBH8TZELM0c14NadQl4K9/view", due: "2026-11-17", time: "17:30", notify: "all" },
-    { id: "fsd-a4", module: 3, title: "Field Visit Reflection Assignment | Submit on Moodle | Click here for details", link: "https://drive.google.com/file/d/1XZ9quKWsrDTAQSYo9HBH4zoI-d4vBZfX/view", due: "2026-11-17", done: true }
+    { id: "fsd-a4", module: 3, title: "Field Visit Reflection Assignment | Submit on Moodle | Click here for details", link: "https://drive.google.com/file/d/1XZ9quKWsrDTAQSYo9HBH4zoI-d4vBZfX/view", due: "2026-11-17", done: true },
+    { id: "fsd-a5", module: 2, title: "Environmental Issues SWOT Assignment resubmission | Submit on Moodle | Click here for submission", link: "https://kusoede.edu.np/mod/assign/view.php?id=99854", due: "2026-12-07", time: "24:00" }
   ], readings: [
     { id: "fsd-r1", module: 2, title: "Bista, D. B. (1991). Fatalism and development: Nepal's struggle for modernization. Orient Blackswan." },
     { id: "fsd-r2", module: 2, title: "Harris, J. (2000). Basic principles of sustainable development (Global Development and Environment Institute Working Paper 00-04). Global Development and Environment Institute." },
