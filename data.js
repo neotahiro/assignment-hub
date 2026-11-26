@@ -91,7 +91,8 @@ readings: [
       { id: "soc-a7", module: 4, title: "Reading Work for next class: WHAT ARE SOCIAL MOVEMENTS? (page 4-5 from the book in this link)", link: "https://drive.google.com/file/d/11k4vKHAzSs-EUxkZot-HVrab8fBG241p/view", due: "2026-11-26", notify: "all",}
 ], notes: [
       { id: "soc-n1", module: 2, title: "Symbolic Interactionism", link: "https://docs.google.com/presentation/d/1DC8uugo1vI2Mg02Ry3icznllOvoA4B-K/edit" },
-      { id: "soc-n2", module: 2, title: "Weber Sociological Thinking", link: "https://docs.google.com/presentation/d/1R71jjDUvF2zcivdGJxkif8lRlRR24fV2/edit" }
+      { id: "soc-n2", module: 2, title: "Weber Sociological Thinking", link: "https://docs.google.com/presentation/d/1R71jjDUvF2zcivdGJxkif8lRlRR24fV2/edit" },
+      { id: "soc-n3", module: 1, title: "Writings - Sociology and Local Cosmology of Sustainable Development", link: "https://docs.google.com/document/d/1T9k9rEHjt7H2g2rpdmppLCiKos3CM_XXRE56hzSHJc8/edit" }
 ],
   readings: [
     { id: "soc-r1", module: 1, title: "Moran, E. F. (2006). People and Nature: An introduction to human ecological relations (pp. 1-23). Blackwell Publishing.", link: "https://drive.google.com/file/d/1PQnQkBL_Wuwl1aRekmNAePffPIhc_PyD/view" },
